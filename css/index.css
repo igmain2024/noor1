@@ -1,0 +1,35 @@
+html{
+    background-color: #cccccc;
+}
+ul{
+    background-color: #d68e8e;
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+}
+li{
+    float:left;
+}
+li a{
+    display: block;
+    color: #00ff00;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+h1{
+    color:#454475;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+.button{
+    background-color: #FF0000;
+    color: #454475;
+    border: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
