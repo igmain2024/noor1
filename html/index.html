@@ -1,19 +1,19 @@
 <!DOCTYPE html> <!--This is how you do comments in HTML, also this defines the document type-->
 <head>
-    <title>Home | Griffen's Portfolio</title>
-    <link rel="stylesheet" href="/index.css">
+    <title>Home | Griffen's Web Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
     <meta charset="utf-8">  
         <!--<script src="scripts.js" type="text/javascript"></script>-->
     <!-- TODO until I figure out how to make an external script file, this will have to do-->
     <!-- <script>
         
-        function buttonRedirect(){
+        function ButtonRedirect(){
             window.history.pushState("http://localhost:8888/", "");
             window.location.replace("https://nathanspelts.com/")
             console.log("Redirected to https://nathanspelts.com/")
 
         }
-        function buttonGame(){
+        function ButtonGame(){
             if(window.confirm("Are you *really* sure you want to play the game?")){
                 let name = prompt("Enter your name","");
                 if(name==null || name =="") {
@@ -22,7 +22,7 @@
                 alert(name+", your name is "+name.length+" characters long!");
             }
         }
-        function buttonInspire(){
+        function ButtonInspire(){
             alert("You can do it!")
         } 
     </script>-->
@@ -30,21 +30,28 @@
 </head>
 <body>
     <h1>
-        Griffen's Spectacular Website 
         <ul>
-            <li><a class="button" href="/">Home</a></li>
-            <li><a class="button" href="/blog">Blog</a></li>
-            <li><a class="button" href="/game">Game</a></li>
-            <li><a class="button" href="/contact">Contact</a></li>
+            <li><a class="navButton" href="/">Home</a></li>
+            <li><a class="navButton" href="/blog">Blog</a></li>
+            <li><a class="navButton" href="/game">Game</a></li>
+            <li><a class="navButton" href="/contact">Contact</a></li>
             <!--Debug Link-->
-            <li><a class="button" href="/asdf">404 Error</a></li>
+            <li><a class="navButton" href="/asdf">404 Error</a></li>
         </ul>
+        <br>
     </h1>
-    <hr>
-    The best website you have ever been on. None can beat it.
+    <h2>
+        Griffen's Web Portfolio 
+    </h2>
+        <section>
+            <p class="textBox">
+                My name's Griffen, and welcome to my personal website!
+            </p>
+        </section>     
 </body>
 <footer>
+    <hr>
     Copyright 2022 by QuakerTech. All Rights Reserved.<br>
-    Griffen's Spectacular Website is Powered by Node.js, Express.js, and HTML5
+    Griffen's Web Portfolio is Powered by Node.js, Express.js, and HTML5
 </footer>
 </html>

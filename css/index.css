@@ -1,8 +1,9 @@
 html{
     background-color: #cccccc;
+    font-family:sans-serif;
 }
+/*Format for the list of links in the navigation bar*/
 ul{
-    background-color: #d68e8e;
     list-style-type: none;
     margin: 0px;
     padding: 10px;
@@ -12,24 +13,41 @@ li{
 }
 li a{
     display: block;
-    color: #00ff00;
     text-align: center;
     padding: 14px;
     text-decoration: none;
 }
+/*Navigation Button Header */
 h1{
+    /*color:#cccccc;*/
+}
+/* Title Text Header*/
+h2{
     color:#454475;
+    font-size: 40px;
+    margin-left: 10px;
 }
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-.button{
-    background-color: #FF0000;
-    color: #454475;
-    border: 20px;
+/*Navigation Button*/
+.navButton{
+    background-color: #3f3750;
+    color: #cccccc;
+    border: 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+}
+/* Change button color text on hover*/
+.navButton:hover{
+    background-color: #000000;
+    color:#e6e6e6;
+}
+/*Textbox for...well, text*/
+.textBox{
+    background-color: #e6e6e6;
+    color:#454475;
+    width: fit-content;
+    padding:5px;
+    border: 5px solid;
+    margin: 10px;
 }
