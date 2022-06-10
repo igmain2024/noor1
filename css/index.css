@@ -3,15 +3,13 @@ html{
     font-family:sans-serif;
 }
 /*Format for the list of links in the navigation bar*/
-ul{
+nav ul{
     list-style-type: none;
-    margin: 0px;
-    padding: 10px;
-}
-li{
-    float:left;
+    margin: 1%;
+    padding: 0px;
 }
 li a{
+    float:left;
     display: block;
     text-align: center;
     padding: 14px;
@@ -25,8 +23,19 @@ h1{
 h2{
     color:#454475;
     font-size: 40px;
-    margin-left: 10px;
+    margin-left: 1%;
 }
+/*Footer information mainly used to stick it to the bottom of the page*/
+footer{
+    width: 100%;
+    position:absolute;
+    bottom:5px;
+    text-align: center;
+    clear: both;
+}
+
+/*-----------Classes------------*/
+
 /*Navigation Button*/
 .navButton{
     background-color: #3f3750;
@@ -45,9 +54,75 @@ h2{
 /*Textbox for...well, text*/
 .textBox{
     background-color: #e6e6e6;
-    color:#454475;
     width: fit-content;
     padding:5px;
-    border: 5px solid;
+    border: 5px solid #454475;
     margin: 10px;
 }
+/*Centered title header that is meant to be placed right above a centerBox*/
+.centerTitle{
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    font-weight: bold;
+    width:51%;
+    color: #454475;
+    font-size: 40px;
+    padding: 5px;
+    margin:auto;
+}
+/*Centered textbox, mainly used for blog posts*/
+.centerBox{
+    background-color: #e6e6e6;
+    width:50%;
+    font-size: 120%;
+    padding:5px;
+    border: 5px solid #454475;
+    margin:auto
+}
+/*Centered image*/
+.centerImage{
+    margin:auto;
+    display:block;
+}
+.DropDown{
+    position: relative;
+    display: inline-block;
+}
+.DropDown:hover{
+    color:#21a837
+}
+.blogDropDownButton{
+    background-color: #3f3750;
+    color: #cccccc;
+    border: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+} 
+
+/*Button for clicking to a blog post on the main blog page*/
+.blogEntry{
+    background-color: #3f3750;
+    color: #cccccc;
+    border: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    box-shadow: 0px 8px 16px #00000002;
+    z-index: 1;
+    font-size: 20px;
+}
+.blogEntry a{
+    color:black;
+    padding: 12px;
+    text-decoration: none;
+    display:block;
+}
+.blogEntry a:hover{
+    background-color: #000000;
+}
+.showContents{
+    display:block;
+}
+

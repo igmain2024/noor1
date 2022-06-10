@@ -15,9 +15,15 @@ app.get('/index.css', function(request,response){ findSpecificFile('css/index.cs
 //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
 app.get('/', function(request,response){ findSpecificFile('html/index.html',request,response)});
 //Matches any of the main branches from root
-app.get('/:name',function(request,response){findHTML('html/'+request.params.name, request, response)})
+app.get('/:name',function(request,response){findFile('html/'+request.params.name,'.html', request, response)});
 //Matches a branch from a main branch. Mainly used for blog posts in /blog/*
-app.get('/:main/:branch',function(request,response){findHTML('html/'+request.params.main+'/'+request.params.branch, request, response)})
+app.get('/:main/:branch',function(request,response){
+    findFile(('html/'+request.params.main+'/'+request.params.branch),'.html', request, response);
+});
+//Matches a branch for loading images. Only loads PNGs (for now, at least(?))
+app.get('/images/:branch/:pic', function(request,response){
+    findFile(('images/'+request.params.branch+'/'+request.params.pic),'.png', request, response);
+})
 //Wild card, handles everything else (not valid) with a 404 page
 app.get('/*', function(request,response){ findSpecificFile('html/404.html',request,response)});
 //Listen for incoming client connections
@@ -27,11 +33,11 @@ app.listen(port, hostname,   () => console.log(`Listening on ${hostname}:${port}
 * findSpecificFile, with the exception that the exception (badum tss) is not thrown
 * if an html file is not found. Instead, a 404 page is sent*/
 //TODO merge the two methods into one?
-function findHTML(filePath, request, response){
-    //Append file extension to end 
-    var path=filePath+".html"
-    console.log("Retrieving "+path)
-    fileReader.readFile(path, function(err,content){
+function findFile(rootPath, extension, request, response){
+    //Append file extension to end of 
+    var filepath=rootPath+extension
+    console.log("Retrieving "+filepath)
+    fileReader.readFile(filepath, function(err,content){
         if(err){
             findSpecificFile('html/404.html',request,response)
         }
@@ -41,7 +47,7 @@ function findHTML(filePath, request, response){
         }
     });
 }
-/*Loads the contents of some html/css/js file to the client*/
+/*Loads the contents of some html/css/js file to the client with a direct filepath*/
 function findSpecificFile(filePath, request, response){
     fileReader.readFile(filePath, function(err,content){
         console.log("Retrieving "+filePath)

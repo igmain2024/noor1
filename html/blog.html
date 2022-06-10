@@ -4,9 +4,11 @@
         <title>Blog | Griffen's Web Portfolio</title>
         <link rel="stylesheet" type="text/css" href="/index.css">
         <meta charset="utf-8">
+        <script src="scripts.js" type="text/javascript"></script>
+
     </head>
     <body>
-        <h1>
+        <nav>
             <ul>
                 <li><a class="navButton" href="/">Home</a></li>
                 <li><a class="navButton" href="/blog">Blog</a></li>
@@ -16,15 +18,24 @@
                 <li><a class="navButton" href="/asdf">404 Error</a></li>
             </ul>
             <br>
-        </h1>
+        </nav>
         <h2>
             Blog 
         </h2>
             <section>
-                <p>
+                <p><!--TODO Blog post links-->
                     This is a blog. I put blog posts here.
                     <br>
-                    <li><a class="navButton" href="/blog/hello">Click here for fun</a></li>
+                    <!-- <p class="centerBox">
+                        <a class="blogEntry" href="/blog/lorem">Click here for fun</a>
+                    </p> -->
+                    <div class="DropDown">
+                        <button onclick="toggleDropdown()" class="blogDropDownButton">Menu</button>
+                        <div id="blogEntries" class="blogEntry">
+                            <a href="/blog/lorem">Link</a>
+                        </div>
+                            
+                    </div>
                     <br>
                     <br>
                     <br>
