@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+#Stuff that I included
 
+images/*
+html/blog/template.html
 package.json
 package-lock.json
