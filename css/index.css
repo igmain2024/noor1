@@ -87,11 +87,15 @@ footer{
 .DropDown{
     position: relative;
     display: inline-block;
+    width: 50%;
+    margin: auto;
 }
-.DropDown:hover{
+/* .DropDown:hover{
     color:#21a837
-}
+} */
 .blogDropDownButton{
+    width: 50%;
+    margin: auto;
     background-color: #3f3750;
     color: #cccccc;
     border: 30px;
