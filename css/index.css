@@ -15,10 +15,6 @@ li a{
     padding: 14px;
     text-decoration: none;
 }
-/*Navigation Button Header */
-h1{
-    /*color:#cccccc;*/
-}
 /* Title Text Header*/
 h2{
     color:#454475;
@@ -84,48 +80,73 @@ footer{
     margin:auto;
     display:block;
 }
+/* The frame that holds a dropdown menu*/
 .DropDown{
     position: relative;
     display: inline-block;
-    width: 50%;
+    width: 100%;
     margin: auto;
+    box-shadow: 0px 8px 16px #00000050;
 }
-/* .DropDown:hover{
-    color:#21a837
-} */
+/*Menu button in a dropdown menu*/
 .blogDropDownButton{
-    width: 50%;
+    width: 100%;
     margin: auto;
     background-color: #3f3750;
     color: #cccccc;
-    border: 30px;
+    border: 5px solid #000000;
     text-align: center;
     text-decoration: none;
+    font-weight: bold;
     display: inline-block;
-    font-size: 20px;
+    font-size: 40px;
 } 
-
+.blogDropDownButton:hover{
+    background-color: #000000;
+}
 /*Button for clicking to a blog post on the main blog page*/
 .blogEntry{
     background-color: #3f3750;
     color: #cccccc;
-    border: 30px;
-    text-align: center;
+    border: 5px solid #000000;
+    border-top: 0px solid #000000;
+    text-align: left;
     text-decoration: none;
     display: none;
-    box-shadow: 0px 8px 16px #00000002;
     z-index: 1;
-    font-size: 20px;
+    font-size: 24px;
 }
+/*The ACTUAL blog entry link*/
 .blogEntry a{
-    color:black;
-    padding: 12px;
+    background-color: #3f3750;
+    color:#cccccc;
+    padding: 5px;
     text-decoration: none;
     display:block;
+    font-weight: bold;
 }
 .blogEntry a:hover{
     background-color: #000000;
 }
+/*Descriptive content in a dropdown menu entry*/
+.blogEntry a p{
+    font-weight: normal;
+    font-size: 20px;
+}
+/*Descriptive content underneath an h2 title header*/
+.descriptionBox{
+    width: 50%;
+    text-align: center;
+    background-color: #3f3750;
+    border: 5px solid #454475;
+    color:#cccccc;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    padding: 10px;
+}
+/*Toggled to show the contents of a dropdown menu (blog entries)*/
 .showContents{
     display:block;
 }
