@@ -23,11 +23,11 @@ h2{
 }
 /*Footer information mainly used to stick it to the bottom of the page*/
 footer{
+    margin:auto;
     width: 100%;
     position:absolute;
     bottom:5px;
     text-align: center;
-    clear: both;
 }
 
 /*-----------Classes------------*/
@@ -69,6 +69,7 @@ footer{
 /*Centered textbox, mainly used for blog posts*/
 .centerBox{
     background-color: #e6e6e6;
+    color: #222141;
     width:50%;
     font-size: 120%;
     padding:5px;
@@ -79,6 +80,8 @@ footer{
 .centerImage{
     margin:auto;
     display:block;
+    width: 100%;
+    height: 100%;
 }
 /* The frame that holds a dropdown menu*/
 .DropDown{
@@ -128,10 +131,15 @@ footer{
 .blogEntry a:hover{
     background-color: #000000;
 }
+
 /*Descriptive content in a dropdown menu entry*/
 .blogEntry a p{
     font-weight: normal;
     font-size: 20px;
+}
+/*Toggled to show the contents of a dropdown menu (blog entries)*/
+.showContents{
+    display:block;
 }
 /*Descriptive content underneath an h2 title header*/
 .descriptionBox{
@@ -146,8 +154,17 @@ footer{
     margin-bottom: 3%;
     padding: 10px;
 }
-/*Toggled to show the contents of a dropdown menu (blog entries)*/
-.showContents{
-    display:block;
+.textTitle{
+    font-size: 24px;
+    color: #454475;
+    display: inline;
+    font-weight: bold;
+}
+.textSpecial{
+    font-size: 20px;
+    color: #222141;
+    display: inline;
+    font-weight: 600;
+    text-decoration: none;
 }
 
