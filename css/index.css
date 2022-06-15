@@ -21,15 +21,15 @@ h2{
     font-size: 40px;
     margin-left: 1%;
 }
-/*Footer information mainly used to stick it to the bottom of the page*/
-footer{
-    margin:auto;
-    width: 100%;
-    position:absolute;
-    bottom:5px;
-    text-align: center;
+h3{
+    margin-left: 1%;
 }
-
+/*Configured so that the footer always is tied to the bottom of the page no matter the length.*/
+body{
+    display:grid;
+    grid-template-rows: auto 1fr auto;
+    min-height:100vh;
+}
 /*-----------Classes------------*/
 
 /*Navigation Button*/
@@ -154,17 +154,25 @@ footer{
     margin-bottom: 3%;
     padding: 10px;
 }
+/*Bigger, bold font used for titles*/
 .textTitle{
     font-size: 24px;
     color: #454475;
     display: inline;
     font-weight: bold;
 }
+/*Bigger, bold font used for special occasions (links)*/
 .textSpecial{
     font-size: 20px;
     color: #222141;
     display: inline;
     font-weight: 600;
     text-decoration: none;
+}
+/*Footer information mainly used to stick it to the bottom of the page*/
+.stickyFooter{
+    margin:auto;
+    width: 100%;
+    text-align: center;
 }
 
