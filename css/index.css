@@ -1,6 +1,7 @@
 html{
     background-color: #cccccc;
     font-family:sans-serif;
+    height:100%;
 }
 /*Format for the list of links in the navigation bar*/
 nav ul{
@@ -26,9 +27,6 @@ h3{
 }
 /*Configured so that the footer always is tied to the bottom of the page no matter the length.*/
 body{
-    display:grid;
-    grid-template-rows: auto 1fr auto;
-    min-height:100vh;
 }
 /*-----------Classes------------*/
 
@@ -74,7 +72,8 @@ body{
     font-size: 120%;
     padding:5px;
     border: 5px solid #454475;
-    margin:auto
+    margin:auto;
+    text-align: justify;
 }
 /*Centered image*/
 .centerImage{
@@ -171,8 +170,13 @@ body{
 }
 /*Footer information mainly used to stick it to the bottom of the page*/
 .stickyFooter{
-    margin:auto;
-    width: 100%;
+    width:100%;
     text-align: center;
+    padding:5px;
+    margin:auto;
+    margin-top: 50vh;
 }
-
+.content{
+    box-sizing: content-box;
+    padding:20px;
+}
