@@ -26,8 +26,6 @@ h3{
     margin-left: 1%;
 }
 /*Configured so that the footer always is tied to the bottom of the page no matter the length.*/
-body{
-}
 /*-----------Classes------------*/
 
 /*Navigation Button*/
@@ -177,6 +175,12 @@ body{
     margin-top: 50vh;
 }
 .content{
-    box-sizing: content-box;
     padding:20px;
+}
+.codeBlock {
+    background-color: gray;
+    text-decoration: none;
+    word-spacing: normal;
+    display: inline;
+    font-family: monospace;
 }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Footer Trouble | Griffen's Web Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="/index.css">
+        <meta charset="utf-8">
+        <script src="scripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a class="navButton" href="/">Home</a></li>
+                <li><a class="navButton" href="/blog">Blog</a></li>
+                <li><a class="navButton" href="/game">Game</a></li>
+                <li><a class="navButton" href="/contact">Contact</a></li>
+                <!--Debug Link-->
+                <li><a class="navButton" href="/asdf">404 Error</a></li>
+            </ul>
+            <br>
+        </nav>
+        <h2>
+            <a class="navButton" href="/blog" style="padding: 5px;">🠔 Back to Posts</a>
+        </h2>
+        <div class="content">
+            <div class="centerTitle"> Sticky Footer is Inconsistent</div>
+            <div class="centerBox">
+                <p class="textTitle">6-16-22</p>
+                    <br>
+                    <p class="textSpecial">The problem</p>
+                <p>
+                    I don't know if I'm chasing a problem that does not exist. For the past few days, I've been
+                    attempting to make it so that the footer remains at the very bottom of the web page.
+                    The issue is that I want a general rule so that the footer will always be at the bottom
+                    regardless of the height of the page. The reason why this is such a problem is
+                    I have web pages of various heights, and as of right now, I have a dropdown menu in the blog
+                    page, which affects the height of that page. 
+                </p>
+                <p class="textSpecial">First solution</p>
+                <p>
+                    I have been able to get it so that the footer is at a fixed position (position 0) from the bottom. 
+                    The issue with this is that if I manage to go past 0 (I open the dropdown menu),
+                    the footer overlaps with the content right there.
+                </p>
+                <p class="textSpecial">Second solution</p>
+                <p>
+                    Ironically, the solution that works best is to set the position style to<div class="codeBlock">relative</div>
+                    when there is a lot of content, and <div class="codeBlock">absolute</div> when there is not
+                    enough content. This method is not optimal because it means I have to hard code each
+                    and every page footer style.
+                </p>
+                <p class="textSpecial">The current solution</p>
+                <p>
+                    The method that I am currently using is to add a top margin on the footer relative to 
+                    the size of the web browser. This works well enough for what I need right now, however
+                    it should not be the final solution. For web pages that have enough content, there is 
+                    a chunk of whitespace at the end of the content before the footer. As I stated at the start
+                    of this post, I am not sure if this is an issue that I need to worry about. As long as
+                    I have enough content on each page, the footer will always be at the bottom of the page.
+                    For the few pages that don't have enough content, I could just manually set the position to
+                    the bottom. I gave my best effort to find a general solution, and I have decided to put
+                    this to rest for now. My next task is going to be to automate the production and loading
+                    of HTML pages.
+                </p>
+            </div>
+
+        </div>     
+    </body>
+    <footer class="stickyFooter">
+        <hr>
+        Copyright 2022 by Griffen Agnello. All Rights Reserved.<br>
+        Griffen's Web Portfolio is Powered by Node.js, Express.js, and HTML5
+    </footer>
+</html>
