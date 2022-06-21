@@ -107,5 +107,4 @@ dist
 
 images/*
 html/blog/template.html
-package.json
-package-lock.json
+

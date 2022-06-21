@@ -3,6 +3,8 @@ var fileReader = require("fs");
 const express = require('express');
 //Initialize the server
 const app = express();
+app.set('view engine', 'pug')
+app.set('views','./views')
 const port = 8888;
 const hostname="localhost";
 
@@ -11,21 +13,27 @@ const hostname="localhost";
 //Back-end files, must be loaded first
 app.get('/scripts.js', function(request,response){ findSpecificFile('scripts/scripts.js',request,response)});
 app.get('/index.css', function(request,response){ findSpecificFile('css/index.css',request,response)});
-//Front-end files
-//Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
-app.get('/', function(request,response){ findSpecificFile('html/index.html',request,response)});
-//Matches any of the main branches from root
-app.get('/:name',function(request,response){findFile('html/'+request.params.name,'.html', request, response)});
-//Matches a branch from a main branch. Mainly used for blog posts in /blog/*
-app.get('/:main/:branch',function(request,response){
-    findFile(('html/'+request.params.main+'/'+request.params.branch),'.html', request, response);
-});
-//Matches a branch for loading images. Only loads PNGs (for now, at least(?))
-app.get('/images/:branch/:pic', function(request,response){
-    findFile(('images/'+request.params.branch+'/'+request.params.pic),'.png', request, response);
-})
-//Wild card, handles everything else (not valid) with a 404 page
-app.get('/*', function(request,response){ findSpecificFile('html/404.html',request,response)});
+
+//TODO automate html pages
+app.get('/', function(req,res){res.render('index');});
+app.get('/*', function(req,res){res.render('404');});
+
+// //Front-end files
+// //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
+// app.get('/', function(request,response){ findSpecificFile('html/index.html',request,response)});
+
+// //Matches any of the main branches from root
+// app.get('/:name',function(request,response){findFile('html/'+request.params.name,'.html', request, response)});
+// //Matches a branch from a main branch. Mainly used for blog posts in /blog/*
+// app.get('/:main/:branch',function(request,response){
+//     findFile(('html/'+request.params.main+'/'+request.params.branch),'.html', request, response);
+// });
+// //Matches a branch for loading images. Only loads PNGs (for now, at least(?))
+// app.get('/images/:branch/:pic', function(request,response){
+//     findFile(('images/'+request.params.branch+'/'+request.params.pic),'.png', request, response);
+// })
+// //Wild card, handles everything else (not valid) with a 404 page
+// app.get('/*', function(request,response){ findSpecificFile('html/404.html',request,response)});
 //Listen for incoming client connections
 app.listen(port, hostname,   () => console.log(`Listening on ${hostname}:${port}...`));
 
