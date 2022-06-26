@@ -107,4 +107,5 @@ dist
 
 images/*
 html/blog/template.html
+config.json
 

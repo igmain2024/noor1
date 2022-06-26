@@ -1,0 +1,29 @@
+{
+    "navLinks":[
+        {"href":"/", "name":"Home"},
+        {"href":"/blog", "name":"Blog"},
+        {"href":"/game", "name":"Game"},
+        {"href":"/contact", "name":"Contact"},
+        {"href":"/asdf", "name":"404 Error"}
+    ],
+    "head":{
+        "link":{
+            "rel":"stylesheet",
+            "type":"text/css",
+            "href":"/index.css"
+        },
+        "meta":{
+            "charset":"utf-8"
+        },
+        "script":{
+            "src":"/scripts.js",
+            "type":"text/javascript"
+        }
+    },
+    "footer":{
+        "content":[
+            "Copyright 2022 by Griffen Agnello.",
+            "Griffen's Web Portfolio is powered by Node.js, Express.js, and HTML5"
+        ]
+    }
+}
