@@ -1,22 +1,14 @@
--
 doctype html
 html 
     head
-        -//link(rel="stylesheet", href="/index.css")
-        link(rel=`${head.link.rel}`, type=`${head.link.type}`, href=`${head.link.href}`)
-        meta(charset=`${head.meta.charset}`)
-        script(src=`${head.script.src}`,type=`${head.script.type}`)
+        include template/head
     body
-        nav.ul
-            li
-                each navLink in navLinks
-                    a.navButton(href=navLink.href) #{navLink.name}
-            br
+        include template/nav
         h2 Griffen's Web Portfolio 
         h3.descriptionBox My name's Griffen, and welcome to my personal website!
-        div.content.
-            asdfjsdfklj
-    footer.stickyFooter
-        hr
-        each line in footer.content
-            div #{line}   
+        div.content 
+            each contentTag in content
+                p.textTitle #{contentTag.head}
+                p #{contentTag.body} 
+    footer
+        include template/footer

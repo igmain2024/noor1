@@ -1,8 +1,10 @@
 //Server that initializes the http connection for the website
 var fileReader = require("fs");
 const express = require('express');
-const {hostname,port} = require("./config.json");
-const templateContent = require('./template.json')
+const jsonmark = require('jsonmark')
+const {hostname,port} = require("./JSON/config.json");
+const templateContent = require('./JSON/template.json')
+var mdContent = {}
 //Initialize the server
 const app = express();
 app.set('view engine', 'pug')
@@ -16,7 +18,18 @@ app.get('/index.css', function(request,response){ findSpecificFile('css/index.cs
 
 //TODO Bootstrap 5
 //TODO automate html pages
-app.get('/', function(req,res){res.render('index', templateContent);});
+app.get('/', function(req,res){
+    fileReader.readFile('./test/test.md', function(err,content){
+        if(err)     throw err;
+        else    {
+            mdContent=jsonmark.parse(content.toString())
+            mdContent=Object.assign(templateContent,mdContent)
+            console.log(mdContent)
+            res.render('index', mdContent);
+        }
+    });
+    
+});
 app.get('/*', function(req,res){res.render('404');});
 
 //Allows for the pug files to read in the JSON content
@@ -40,25 +53,27 @@ module.exports=app;
 //Listen for incoming client connections
 app.listen(port, hostname, () => console.log(`Listening on ${hostname}:${port}...`));
 
-/* Loads the contents of an html file to the client. This method looks pretty similar
-* findSpecificFile, with the exception that the exception (badum tss) is not thrown
-* if an html file is not found. Instead, a 404 page is sent*/
-//TODO merge the two methods into one?
-function findFile(rootPath, extension, request, response){
-    //Append file extension to end of 
-    var filepath=rootPath+extension
-    console.log("Retrieving "+filepath)
-    fileReader.readFile(filepath, function(err,content){
-        if(err){
-            findSpecificFile('html/404.html',request,response)
-        }
-        else{
-            response.write(content);
-            response.end(); 
-        }
-    });
-}
-/*Loads the contents of some html/css/js file to the client with a direct filepath*/
+// /* Loads the contents of an html file to the client. This method looks pretty similar
+// * findSpecificFile, with the exception that the exception (badum tss) is not thrown
+// * if an html file is not found. Instead, a 404 page is sent*/
+// //TODO merge the two methods into one?
+// function findFile(rootPath, extension, request, response){
+//     //Append file extension to end of 
+//     var filepath=rootPath+extension
+//     console.log("Retrieving "+filepath)
+//     fileReader.readFile(filepath, function(err,content){
+//         if(err){
+//             findSpecificFile('html/404.html',request,response)
+//         }
+//         else{
+//             response.write(content);
+//             response.end(); 
+//         }
+//     });
+// }
+
+
+/*Loads the contents of some file to the client with a direct filepath*/
 function findSpecificFile(filePath, request, response){
     fileReader.readFile(filePath, function(err,content){
         console.log("Retrieving "+filePath)

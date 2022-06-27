@@ -1,0 +1,6 @@
+//- Navigation bar. Usage: put include in first line of body indentation
+nav.ul
+    li
+        each navLink in navLinks
+            a.navButton(href=navLink.href) #{navLink.name}
+    br

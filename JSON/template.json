@@ -1,4 +1,5 @@
 {
+    "COMMENT":"This file includes information that will be present on every page",
     "navLinks":[
         {"href":"/", "name":"Home"},
         {"href":"/blog", "name":"Blog"},
@@ -22,7 +23,7 @@
     },
     "footer":{
         "content":[
-            "Copyright 2022 by Griffen Agnello.",
+            "Copyright (c) 2022 by Griffen Agnello.",
             "Griffen's Web Portfolio is powered by Node.js, Express.js, and HTML5"
         ]
     }
