@@ -1,0 +1,46 @@
+-
+    var centerTitleFlag=false
+    var i=0
+    var parsedBody=null
+doctype html
+html 
+    head
+        include ../template/head
+        //- TODO add title
+    body
+        include ../template/nav
+
+        h2
+            a.navButton(href="/blog", style="padding: 5px;") 🠔 Back to Posts
+        div.content
+            each contentTag in content
+                if !centerTitleFlag
+                    -   centerTitleFlag=true
+                    div.centerTitle #{contentTag.head}
+            div.centerBox
+                each contentTag in content
+                    if i===0
+                        -   i++
+                        continue
+                    else if i===1
+                        -   i++
+                        p.textTitle #{contentTag.head}
+                        br
+                    else
+                        -   parsedBody=(contentTag.body).split(" ")
+                        if /continue_/.test(contentTag.head)
+                            span(class=`continue`) #{contentTag.body}
+                        else if /codeBlock_/.test(contentTag.head)
+                            span(class=`codeBlock`) #{contentTag.body}
+                        else if /centerImg_/.test(contentTag.head)
+                            img(class=`centerImage`, src=`${parsedBody[0]}`, alt=`${parsedBody[1]}`)
+                        else if /p_/.test(contentTag.head)
+                            p #{contentTag.body}
+                        else if /link_/.test(contentTag.head)
+                            span.textSpecial(style=`display:inline;`)
+                                a(href=`${parsedBody[0]}`) #{parsedBody[1]}
+                        else
+                            p.textSpecial #{contentTag.head}
+                            span #{contentTag.body} 
+    footer
+        include ../template/footer

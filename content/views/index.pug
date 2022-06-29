@@ -9,6 +9,7 @@ html
         div.content 
             each contentTag in content
                 p.textTitle #{contentTag.head}
+                //- TODO If link, do this...
                 p #{contentTag.body} 
     footer
         include template/footer

@@ -25,6 +25,7 @@ h2{
 h3{
     margin-left: 1%;
 }
+
 /*Configured so that the footer always is tied to the bottom of the page no matter the length.*/
 /*-----------Classes------------*/
 
@@ -160,9 +161,11 @@ h3{
 }
 /*Bigger, bold font used for special occasions (links)*/
 .textSpecial{
+    word-spacing: normal;
     font-size: 20px;
+    margin-right: 5px;
     color: #222141;
-    display: inline;
+    display: block;
     font-weight: 600;
     text-decoration: none;
 }
@@ -177,10 +180,12 @@ h3{
 .content{
     padding:20px;
 }
+/*Block around an area of text with mono font to resemble code*/
 .codeBlock {
     background-color: gray;
+    margin-left: 2px;
+    margin-right: 2px;
     text-decoration: none;
-    word-spacing: normal;
     display: inline;
     font-family: monospace;
 }

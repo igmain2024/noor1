@@ -105,7 +105,7 @@ dist
 
 #Stuff that I included
 
-images/*
-html/blog/template.html
+content/images/*
 config.json
-
+test/*
+JSON/header.json
