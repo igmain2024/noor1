@@ -1,4 +1,5 @@
-# My First Blog Post!
+# First Post | Griffen's Web Portfolio
+My First Blog Post!
 ## 6-13-22
 A short story of why I wanted to make this website, and the process involved.
 ### It's official!

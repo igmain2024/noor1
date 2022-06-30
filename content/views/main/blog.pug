@@ -1,0 +1,44 @@
+extends ../main.pug
+block content
+    div.centerTitle Most Recent Post
+    div.centerBox
+        //-Get most recent post
+        -   
+            var x=0;
+            var y=0;
+        each archive in blogposts
+            each year in archive
+                if x===0
+                    //- Skip over "year" 
+                    -   x++
+                    continue
+                else 
+                    //- I don't know why I have to reverse it here. It's so that the list in the archive isn't flipped
+                    each post in year.reverse()
+                        //- Only get most recent post from the current year
+                        if x===1
+                            -   
+                                x++; 
+                            div.blogEntry(style="display: block; border-top: 5px solid #000000;")
+                                a(href=`/blog/${post.link}`) #{post.title}
+                                    p #{post.date}<br>#{post.desc}
+                    -   x=0
+    div.centerTitle Blog Post Archives
+    div.centerBox
+        div.DropDown
+            each archive in blogposts
+                //- TODO make dropdown button actually a button that shows/hides content
+                button.blogDropDownButton() #{archive.year} Archive
+                each year in archive
+                    if y===0
+                        //- Skip over "year"
+                        -   y++
+                        continue
+                    else 
+                        //- List from oldest to newest
+                        each post in year.reverse()
+                            div.blogEntry(id='blogEntries', style="display: block; border-top: 5px solid #000000;")
+                                a(href=`/blog/${post.link}`) #{post.title}
+                                    p #{post.date}<br>#{post.desc}
+                -   y=0
+

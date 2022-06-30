@@ -6,26 +6,28 @@ doctype html
 html 
     head
         include ../template/head
-        //- TODO add title
     body
         include ../template/nav
-
         h2
             a.navButton(href="/blog", style="padding: 5px;") 🠔 Back to Posts
+        //- Get Title for blog post
         div.content
             each contentTag in content
                 if !centerTitleFlag
                     -   centerTitleFlag=true
-                    div.centerTitle #{contentTag.head}
+                    div.centerTitle #{contentTag.body}
             div.centerBox
+                //- Get date sub title
                 each contentTag in content
+                    //- Skip
                     if i===0
                         -   i++
                         continue
+                    //- Get date sub title
                     else if i===1
                         -   i++
                         p.textTitle #{contentTag.head}
-                        br
+                    //- Get content
                     else
                         -   parsedBody=(contentTag.body).split(" ")
                         if /continue_/.test(contentTag.head)
@@ -40,7 +42,7 @@ html
                             span.textSpecial(style=`display:inline;`)
                                 a(href=`${parsedBody[0]}`) #{parsedBody[1]}
                         else
-                            p.textSpecial #{contentTag.head}
+                            p.textTitle #{contentTag.head}
                             span #{contentTag.body} 
     footer
         include ../template/footer

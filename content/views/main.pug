@@ -1,0 +1,24 @@
+-
+    var titleFlag=0
+    var descBoxFlag=0
+doctype html
+html 
+    head
+        include template/head
+    body
+        include template/nav
+        //- Get title text header
+        each contentTag in content
+            if titleFlag===0
+                h2 #{contentTag.body}
+                -   titleFlag++
+        h2
+        //- Get Description box
+        each contentTag in content
+            if descBoxFlag===1
+                h3.descriptionBox #{contentTag.body}
+            else
+                -   descBoxFlag++
+        block content 
+    footer
+        include template/footer

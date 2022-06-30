@@ -1,4 +1,5 @@
-# Sticky Footer is Inconsistent
+# Footer Trouble | Griffen's Web Portfolio
+Sticky Footer is Inconsistent
 ## 6-16-22
 The first major road block I have experienced while making this website.
 ### The problem

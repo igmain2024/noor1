@@ -33,3 +33,17 @@
 //         }
 //     });
 // }
+
+//I never actually used this function. I thought I was going to, but the process wasn't working out.
+// /*This gets all the description headers from all the blog mardown pages */
+// function getBlogPreviewContent(){
+//     return 
+//     var blogJSONArray=[]
+//     var files=fs.readdirSync('content/md/blog')
+//     for(let file of files){
+//         var buffer=fs.readFileSync(`content/md/blog/${file}`)
+//         var mdContent=parseMDContent(buffer.toString())
+//         blogJSONArray.push(mdContent)
+//     }
+//     return blogJSONArray
+// }
