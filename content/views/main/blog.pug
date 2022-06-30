@@ -14,7 +14,7 @@ block content
                     continue
                 else 
                     //- I don't know why I have to reverse it here. It's so that the list in the archive isn't flipped
-                    each post in year.reverse()
+                    each post in year
                         //- Only get most recent post from the current year
                         if x===1
                             -   
@@ -36,7 +36,9 @@ block content
                         continue
                     else 
                         //- List from oldest to newest
-                        each post in year.reverse()
+                        //- TODO reverse doesn't work right
+                        //-each post in year.reverse()
+                        each post in year
                             div.blogEntry(id='blogEntries', style="display: block; border-top: 5px solid #000000;")
                                 a(href=`/blog/${post.link}`) #{post.title}
                                     p #{post.date}<br>#{post.desc}
