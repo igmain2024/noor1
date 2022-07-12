@@ -1,1 +1,0 @@
-This folder contains code that is no longer utilized in the final build of the project. It is kept in this folder for archival purposes. Deprecated files are marked with a `d-` prefix.
