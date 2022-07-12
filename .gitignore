@@ -108,3 +108,4 @@ dist
 content/images/*
 config.json
 test/*
+deprecated/*
