@@ -39,7 +39,7 @@ html
                         else if /p_/.test(contentTag.head)
                             p #{contentTag.body}
                         else if /link_/.test(contentTag.head)
-                            span.textSpecial(style=`display:inline;`)
+                            span.textSpecial(style=`display:inline; margin-left:5px;`)
                                 a(href=`${parsedBody[0]}`) #{parsedBody[1]}
                         else
                             p.textTitle #{contentTag.head}
