@@ -1,5 +1,5 @@
 //Server that initializes the http connection for the website
-var fs = require("fs");
+const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
 const scripts = require('./scripts/module.js')
@@ -14,31 +14,27 @@ app.locals.toggleDropdown=scripts.toggleDropdown
 //callback methods for when a client connects to a certain page
 
 //Back-end files, must be loaded first
-app.get('/scripts.js', (request,response) => { findSpecificFile('./scripts/scripts.js',request,response)});
+app.get('/scripts.js', (req,res) => { findSpecificFile('./scripts/scripts.js',req,res)});
 // app.get('/index.css', (request,response) => { findSpecificFile('css/index.css',request,response)});
 
 //TODO Bootstrap 5
 //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
-app.get('/', (req,res) =>{renderContent('./content/md/main/index.md','main/index',req,res)});
+app.get('/', (req,res) =>{  renderContent('./content/md/main/index.md','main/index',res)});
+//Loads a main branch
 app.get('/:main', (req,res) => {
-    var main = req.params.main, moreContent;
-    if(main==="blog"){
-        moreContent=require('./JSON/blogposts.json');
-    }       
-    renderContent(`./content/md/main/${main}.md`,`main/${main}`,req,res,moreContent)
+    if(req.params.main==="blog")    return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/blogposts.json'))
+    return renderContent(`./content/md/main/${req.params.main}.md`,`main/${req.params.main}`,res)
 });
+//Loads branches from main branches, mainly blog posts
 app.get('/:main/:name', (req,res)=>{
-    //TODO change path string so that it detects what file extension to use(?)
-    var name = req.params.name, main = req.params.main, view=name
+    var view=req.params.name
     //If the request is for a blog post page.
-    if(main==="blog")   view="blog-template"
-    renderContent(`./content/md/${main}/${name}.md`,`${main}/${view}`,req,res)
+    if(req.params.main==="blog")   view="blog-template"
+    renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${req.params.main}/${view}`,res)
 });
-app.get('/images/:main/:pic', (req,res)=>{
-    var main = req. params.main, pic = req.params.pic
-    findSpecificFile(`./content/images/${main}/${pic}.png`,req,res)
-});
-app.get('/*', function(req,res){renderContent('./content/md/main/404.md','main/404',req,res);});
+//Loads pictures (PNGs)
+app.get('/images/:main/:pic', (req,res)=>{  findSpecificFile(`./content/images/${req.params.main}/${req.params.pic}.png`,res)});
+app.get('/*', (req,res)=>{renderContent('./content/md/main/404.md','main/404',res);});
 
 //Allows for the pug files to read in the JSON content
 module.exports=app;
@@ -56,33 +52,26 @@ function parseMDContent(content){
         (JSON.stringify(jsonmark.parse(content), null, ' '))
         .replace(/# |## |### /gi,""))
 }
-//TODO make it so that invalid pages don't crash the server lol
 /*This function gathers necessary information for a webpage and renders it */
-function renderContent(MDfilepath,view,req,res,moreContent){
+function renderContent(MDfilepath,view,res,moreContent={}){
+    console.log(`Retrieving ${MDfilepath}`)
     //Reads in a markdown file to parse from
     fs.readFile(MDfilepath, (err,content)=>{
-        if(err)     renderContent('./content/md/main/404.md','main/404',req,res);
-        else    {
-            //Gets the markdown content in JSON format
-            var mdContent=parseMDContent(content.toString())
-            var allContent;
-            //Compiles all content together into a single JSON object
-            if(moreContent) allContent=Object.assign(templateContent,mdContent,moreContent)
-            else    allContent=Object.assign(templateContent,mdContent)
-            //Renders the pug file with the associated content
-            res.render(view, allContent);
-        }
+        //Renders the 404 page if the markdown file cannot be opened or read.
+        if(err)     return renderContent('./content/md/main/404.md','main/404',res);
+        //parseMDContent gets the markdown content in JSON format
+        //Object.assign() compiles all content together into a single JSON object
+        //At the end, the pug file is rendered with the associated content
+        res.render(view, Object.assign(templateContent,parseMDContent(content.toString()),moreContent));
     });
 }
 
 /*Loads the contents of some file to the client with a direct filepath*/
-function findSpecificFile(filePath, request, response){
+function findSpecificFile(filePath, res){
     fs.readFile(filePath, function(err,content){
-        console.log("Retrieving "+filePath)
-        if(err)     throw err;
-        else    {
-            response.write(content);
-            response.end(); 
-        }
+        console.log(`Retrieving ${filePath}`)
+        // if(err)     throw err;
+        if(err)     return renderContent('./content/md/main/404.md','main/404',res);
+        res.end(content); 
     });
 }
