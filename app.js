@@ -8,6 +8,8 @@ const scripts = require('./scripts/module.js')
 const templateContent = require('./JSON/template.json')
 //Initialize the server
 const app = express();
+// use the express-static middleware
+app.use(express.static("content"))
 app.set('view engine', 'pug')
 app.set('views','./content/views')
 app.locals.toggleDropdown=scripts.toggleDropdown
@@ -43,7 +45,7 @@ module.exports=app;
 //For launching on local computer. Make sure to uncomment the const "port" and "hostname" at the top
 //app.listen(port, hostname, () => console.log(`Listening on ${hostname}:${port}...`));
 //For deployment on heroku
-app.listen(process.env.PORT || 8888, () => console.log(`Server is listening...`));
+app.listen(process.env.PORT || 8888, () => console.log(`Server is listening on ${process.env.PORT}...`));
 
 /*---------------------Functions/Methods--------------------------- */
 /*
