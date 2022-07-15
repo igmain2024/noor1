@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "express": "^4.18.1",
+    "heroku": "^7.60.2",
     "jsonmark": "^0.0.1",
+    "nodemon": "^2.0.19",
     "pug": "^3.0.2"
   }
 }
