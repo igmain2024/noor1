@@ -3,7 +3,7 @@ const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
 const scripts = require('./scripts/module.js')
-const {hostname,port} = require("./JSON/config.json");
+//const {hostname,port} = require("./JSON/config.json");
 //The template content is used so much, it deserves it's own variable so we automatically have it
 const templateContent = require('./JSON/template.json')
 //Initialize the server
@@ -40,7 +40,10 @@ app.get('/*', (req,res)=>{renderContent('./content/md/main/404.md','main/404',re
 module.exports=app;
 
 //Listen for incoming client connections
-app.listen(port, hostname, () => console.log(`Listening on ${hostname}:${port}...`));
+//For launching on local computer. Make sure to uncomment the const "port" and "hostname" at the top
+//app.listen(port, hostname, () => console.log(`Listening on ${hostname}:${port}...`));
+//For deployment on heroku
+app.listen(process.env.PORT || 8888, () => console.log(`Server is listening...`));
 
 /*---------------------Functions/Methods--------------------------- */
 /*
