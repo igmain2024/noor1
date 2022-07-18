@@ -1,24 +1,28 @@
+//- This template is for the main pages (Home, Blog, Contact, etc.)
 -
-    var titleFlag=0
+    //- Flag to get specific description box text from the MD
     var descBoxFlag=0
 doctype html
 html 
     head
         include template/head
+        block scripts
     body
         include template/nav
         //- Get title text header
         each contentTag in content
-            if titleFlag===0
-                h2 #{contentTag.body}
-                -   titleFlag++
-        h2
+            h2 #{contentTag.body}
+            //- Break iteration to only get header 
+            -   break
+        br
         //- Get Description box
         each contentTag in content
             if descBoxFlag===1
                 h3.descriptionBox #{contentTag.body}
+                -   break
             else
                 -   descBoxFlag++
+        //-Insert content depending on the page specifics
         block content 
     footer
         include template/footer

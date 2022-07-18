@@ -103,24 +103,22 @@ h3{
     font-size: 40px;
 } 
 .blogDropDownButton:hover{
-    background-color: #000000;
+    background-color: #222222;
 }
 /*Button for clicking to a blog post on the main blog page*/
-.blogEntry{
+.blogEntryContainer{
     background-color: #3f3750;
     color: #cccccc;
     border: 5px solid #000000;
     border-top: 0px solid #000000;
     text-align: left;
     text-decoration: none;
-    /* display: none; */
-    /*TODO Figure out how to use the dropdown function with pug*/
-    display:block;
+    display: none;
     z-index: 1;
     font-size: 24px;
 }
 /*The ACTUAL blog entry link*/
-.blogEntry a{
+.blogEntryContainer a{
     background-color: #3f3750;
     color:#cccccc;
     padding: 5px;
@@ -128,12 +126,12 @@ h3{
     display:block;
     font-weight: bold;
 }
-.blogEntry a:hover{
+.blogEntryContainer a:hover{
     background-color: #000000;
 }
 
 /*Descriptive content in a dropdown menu entry*/
-.blogEntry a p{
+.blogEntryContainer a p{
     font-weight: normal;
     font-size: 20px;
 }

@@ -1,46 +1,33 @@
+//-This loads the content on the blog page that lists the blog post archives
 extends ../main.pug
+block scripts
+    script(src="/scripts.js" defer)
 block content
     div.centerTitle Most Recent Post
     div.centerBox
         //-Get most recent post
-        -   
-            var x=0;
-            var y=0;
         each archive in blogposts
-            each year in archive
-                if x===0
-                    //- Skip over "year" 
-                    -   x++
-                    continue
-                else 
-                    //- I don't know why I have to reverse it here. It's so that the list in the archive isn't flipped
-                    each post in year
-                        //- Only get most recent post from the current year
-                        if x===1
-                            -   
-                                x++; 
-                            div.blogEntry(style="display: block; border-top: 5px solid #000000;")
-                                a(href=`/blog/${post.link}`) #{post.title}
-                                    p #{post.date}<br>#{post.desc}
-                    -   x=0
+            //- Display most recent post link with its description and date
+            div.blogEntryContainer(style="display: block; border-top: 5px solid #000000;")
+                a(href=`/blog/${archive.links[0].link}`) #{archive.links[0].title}
+                    p #{archive.links[0].date}<br>#{archive.links[0].desc}
+            -   break
+    //- Archive list with a dropdown menu for each year
     div.centerTitle Blog Post Archives
     div.centerBox
+        //-Dropdown div to hold menu buttons
         div.DropDown
+            //- Iterate through each archive year
             each archive in blogposts
-                //- TODO make dropdown button actually a button that shows/hides content
-                button.blogDropDownButton() #{archive.year} Archive
-                each year in archive
-                    if y===0
-                        //- Skip over "year"
-                        -   y++
-                        continue
-                    else 
-                        //- List from oldest to newest
-                        //- TODO reverse doesn't work right
-                        //-each post in year.reverse()
-                        each post in year
-                            div.blogEntry(id='blogEntries', style="display: block; border-top: 5px solid #000000;")
-                                a(href=`/blog/${post.link}`) #{post.title}
-                                    p #{post.date}<br>#{post.desc}
-                -   y=0
+                //-Make dropdown menu button. Contents are hidden at first.
+                button.blogDropDownButton(onclick=`toggleDropdown("${archive.year}")`) #{archive.year} Archive
+                    div.blogEntryContainer(id=`${archive.year}`, style="border-top: 5px solid #000000;")
+                        //- List from oldest to newest in archive
+                        - var postIterator = archive.links.length-1
+                        while postIterator >= 0
+                            a(href=`/blog/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
+                                p #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
+                            hr
+                            //- Next iteration is next newest post
+                            -   postIterator--
 

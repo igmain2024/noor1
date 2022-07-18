@@ -2,24 +2,22 @@
 const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
-const scripts = require('./scripts/module.js')
-//const {hostname,port} = require("./JSON/config.json");
+// const scripts = require('./scripts/module.js')
 //The template content is used so much, it deserves it's own variable so we automatically have it
 const templateContent = require('./JSON/template.json')
 //Initialize the server
 const app = express();
-// use the express-static middleware
-app.use(express.static("content"))
+app.use(express.static("scripts"))
 app.set('view engine', 'pug')
 app.set('views','./content/views')
-app.locals.toggleDropdown=scripts.toggleDropdown
+// app.locals.toggleDropdown=scripts.toggleDropdown
 //callback methods for when a client connects to a certain page
 
 //Back-end files, must be loaded first
 app.get('/scripts.js', (req,res) => { findSpecificFile('./scripts/scripts.js',req,res)});
 // app.get('/index.css', (request,response) => { findSpecificFile('css/index.css',request,response)});
 
-//TODO Bootstrap 5
+//TODO Bootstrap 5?
 //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
 app.get('/', (req,res) =>{  renderContent('./content/md/main/index.md','main/index',res)});
 //Loads a main branch
@@ -36,16 +34,15 @@ app.get('/:main/:name', (req,res)=>{
 });
 //Loads pictures (PNGs)
 app.get('/images/:main/:pic', (req,res)=>{  findSpecificFile(`./content/images/${req.params.main}/${req.params.pic}.png`,res)});
+//Everything invalid is handled with a 404 page.
 app.get('/*', (req,res)=>{renderContent('./content/md/main/404.md','main/404',res);});
 
 //Allows for the pug files to read in the JSON content
 module.exports=app;
 
 //Listen for incoming client connections
-//For launching on local computer. Make sure to uncomment the const "port" and "hostname" at the top
-//app.listen(port, hostname, () => console.log(`Listening on ${hostname}:${port}...`));
-//For deployment on heroku
-app.listen(process.env.PORT || 3000, () => console.log(`Server is listening on ${process.env.PORT}...`));
+//For deployment on heroku, the port will be `process.env.PORT`. If localhost, the port is 8888
+app.listen(process.env.PORT || 8888, () => console.log(`Server is listening on port ${process.env.PORT || 8888}...`));
 
 /*---------------------Functions/Methods--------------------------- */
 /*
