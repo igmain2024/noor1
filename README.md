@@ -1,5 +1,5 @@
 # Personal Portfolio Website
-My personal portofolio website made using Node.js and Express.js. Currrently, I am using Heroku as my web host, and the live site may be found [here](https://griffenswebportfolio.herokuapp.com/). All the page contents are also able to be viewed here in this repository (but uh, good luck figuring how the page will look). All HTML and CSS style pages are made from scratch-ish. I am using the template language Pug, but I have hand-made all my template files. No pre-built templates are used. This decision is for me to learn about the fundamentals of web development in detail from start to finsih.
+My personal portofolio website made using Node.js and Express.js. Currrently, I am using Heroku as my web host, and the live site may be found [here](https://griffenagnello.herokuapp.com/). All the page contents are also able to be viewed here in this repository (but uh, good luck figuring how the page will look). All HTML and CSS style pages are made from scratch-ish. I am using the template language Pug, but I have hand-made all my template files. No pre-built templates are used. This decision is for me to learn about the fundamentals of web development in detail from start to finsih.
 
 ## Contents
 - Home Page: A brief introduction of who I am, what I've been working on, and some information about the website.

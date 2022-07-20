@@ -18,7 +18,7 @@ The pug file can then iterate through each attribute in the JSON and paste infor
 you want it. In addition, pug offers a simplified version of HTML's syntax (mainly, no need for using <tag>, you just would say tag ) with Python indentation rules. Here is my blog template pug file as
 an example of what I'm talking about.
 ### centerImg_1
-/images/blog-pics/pug-switch-pug-file pug_file
+/images/blog-pics/pug-switch-pug-file.png pug_file
 ### Oh no, not the strand of else ifs
 The source code is all publicly available on  
 ### link_2

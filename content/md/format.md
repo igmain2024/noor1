@@ -15,7 +15,7 @@ inline text with no header
 
 ### centerImg_0123
 FORMAT:
-src/path/to/img alternate_text
+src/path/to/img.ext alternate_text
 
 ### codeBlock_0123
 inline text that's in a gray block with no header

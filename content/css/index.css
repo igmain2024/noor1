@@ -28,6 +28,8 @@ li a{
     text-decoration: none;
 }
 /*-----------Classes------------*/
+
+/*----------------Main page/general classes----------------*/
 /* Title Text Header*/
 .headerTitle{
     font-size: 40px;
@@ -47,14 +49,26 @@ li a{
 .navButton:hover{
     color:#FFEE77;
 }
-/*Centered title header that is meant to be placed right above a centerBox*/
-.centerTitle{
+/*Descriptive content underneath an h2 title header*/
+.descriptionBox{
     font-weight: bold;
-    width:51%;
-    font-size: 40px;
-    padding: 5px;
-    margin:auto;
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    padding: 10px;
 }
+/*Footer information mainly used to stick it to the bottom of the page*/
+.stickyFooter{
+    width:100%;
+    text-align: center;
+    padding:5px;
+    margin:auto;
+    margin-top: 50vh;
+}
+/*-----------Text box and frame classes---------------*/
 /*Frame with no apparent structuring*/
 .centerSquareFrame{
     width:100%;
@@ -78,10 +92,33 @@ li a{
     width:50%;
     font-size: 120%;
     padding:5px;
-    border: 3px solid #FFEE773F;
     margin:auto;
     text-align: justify;
-    box-shadow: 0px 5px 10px #00000050;
+    box-shadow: 0px 5px 10px #000000F5;
+}
+/*Left-justified textbox, used in the home page*/
+.leftTextBox{
+    display: inline-block;
+    background-color: #00509D2F;
+    border-radius: 25px;
+    width:40%;
+    font-size: 120%;
+    padding:5px;
+    text-align: left;
+    box-shadow: 0px 5px 10px #000000F5;
+}
+.introFrame{
+    display: block;
+    height:75%;
+    width:50%;
+    margin:auto;
+}
+.profileImage{
+    display: inline;
+    width:inherit;
+    height:inherit;
+    border-radius: 100%;
+    margin-left: 5%;
 }
 /*Centered image*/
 .centerImage{
@@ -90,8 +127,9 @@ li a{
     width: 100%;
     height: 100%;
 }
+/*-------------------Blog classes-----------------------*/
 /* The frame that holds a dropdown menu*/
-.DropDown{
+.dropDownFrame{
     position: relative;
     display: inline-block;
     width: 100%;
@@ -123,6 +161,7 @@ li a{
     display: none;
     z-index: 1;
     font-size: 24px;
+    box-shadow: 0px 5px 10px #00000055;
 }
 /*The ACTUAL blog entry link*/
 .blogEntryContainer a{
@@ -146,16 +185,14 @@ li a{
 .showContents{
     display:block;
 }
-/*Descriptive content underneath an h2 title header*/
-.descriptionBox{
+/*----------------Text classes-----------------------*/
+/*Centered title header that is meant to be placed right above a centerBox*/
+.centerTitle{
     font-weight: bold;
-    width: 50%;
-    text-align: center;
-    font-size: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 3%;
-    padding: 10px;
+    width:51%;
+    font-size: 40px;
+    padding: 5px;
+    margin:auto;
 }
 /*Bigger, bold font used for titles*/
 .textTitle{
@@ -177,14 +214,6 @@ li a{
 .textSpecial a{
     text-decoration: none;
     color:inherit;
-}
-/*Footer information mainly used to stick it to the bottom of the page*/
-.stickyFooter{
-    width:100%;
-    text-align: center;
-    padding:5px;
-    margin:auto;
-    margin-top: 50vh;
 }
 /*Block around an area of text with mono font to resemble code*/
 .codeBlock {

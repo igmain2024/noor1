@@ -48,25 +48,25 @@ These are screenshots of the website as it looks now, I think it would be fun
 to capture this now so that I can compare the look of the website later on.
 ### Home
 ### centerImg_0
-/images/blog-pics/first-post-home home_page
+/images/blog-pics/first-post-home.png home_page
 ### Blog - I'm pretty proud of this one:
 ### centerImg_1
-/images/blog-pics/first-post-blog
+/images/blog-pics/first-post-blog.png
 ### Game:
 ### centerImg_2
-/images/blog-pics/first-post-game game_page
+/images/blog-pics/first-post-game.png game_page
 ### Contact:
 ### centerImg_3
-/images/blog-pics/first-post-contact contact_page
+/images/blog-pics/first-post-contact.png contact_page
 ### 404 Error:
 ### centerImg_4
-/images/blog-pics/first-post-404 404 Error_page
+/images/blog-pics/first-post-404.png 404 Error_page
 ### continue_1
 What's pretty neat is that it even looks good in the dark mode web extension that I use,
 ### link_1
 https://darkreader.org/ Darkreader.org
 ### centerImg_5
-/images/blog-pics/first-post-dark dark_page
+/images/blog-pics/first-post-dark.png dark_page
 ### Wrap-up
 I am very happy with the progress that I made, and I am excited to keep working
 on the website! This is the end of this post for now, but I plan on writing

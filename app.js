@@ -32,8 +32,8 @@ app.get('/:main/:name', (req,res)=>{
     if(req.params.main==="blog")   view="blog-template"
     renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${req.params.main}/${view}`,res)
 });
-//Loads pictures (PNGs)
-app.get('/images/:main/:pic', (req,res)=>{  findSpecificFile(`./content/images/${req.params.main}/${req.params.pic}.png`,res)});
+//Loads pictures
+app.get('/images/:main/:pic', (req,res)=>{  findSpecificFile(`./content/images/${req.params.main}/${req.params.pic}`,res)});
 //Everything invalid is handled with a 404 page.
 app.get('/*', (req,res)=>{renderContent('./content/md/main/404.md','main/404',res);});
 

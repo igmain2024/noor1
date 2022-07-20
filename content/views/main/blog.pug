@@ -15,20 +15,20 @@ block content
         //- Archive list with a dropdown menu for each year
         div.centerTitle Blog Post Archives
             //-Dropdown div to hold menu buttons
-            div.DropDown
-                //- Iterate through each archive year
-                each archive in blogposts
-                    //-Make dropdown menu button. Contents are hidden at first.
-                    button.blogDropDownButton(onclick=`toggleDropdown("${archive.year}")`) #{archive.year} Archive
-                    div.blogEntryContainer(id=`${archive.year}`)
-                        //- List from oldest to newest in archive
-                        - let postIterator = archive.links.length-1
-                        while postIterator >= 0
-                            a(href=`/blog/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
-                                p #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
-                            //- Horizontal rule on the bottom on all but the last link
-                            if postIterator != 0
-                                hr
-                            //- Next iteration is next newest post
-                            -   postIterator--
+        
+            //- Iterate through each archive year
+            each archive in blogposts
+                //-Make dropdown menu button. Contents are hidden at first.
+                button.blogDropDownButton(onclick=`toggleDropdown("${archive.year}")`) #{archive.year} Archive
+                div.blogEntryContainer(id=`${archive.year}`)
+                    //- List from oldest to newest in archive
+                    - let postIterator = archive.links.length-1
+                    while postIterator >= 0
+                        a(href=`/blog/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
+                            p #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
+                        //- Horizontal rule on the bottom on all but the last link
+                        if postIterator != 0
+                            hr
+                        //- Next iteration is next newest post
+                        -   postIterator--
 
