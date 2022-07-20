@@ -1,5 +1,16 @@
+/* References
+    #FFC500 - standard color
+    #FFEE77 - Light variation
+    #d6a400 - dark variation
+    
+    #003F88 - standard color
+    #00509D - Light Variation
+    #00296B - darker variation
+    #002953 - even darker variation
+*/
 html{
-    background-color: #cccccc;
+    background-color: #003F88;
+    color:#FFC500;
     font-family:sans-serif;
     height:100%;
 }
@@ -16,63 +27,61 @@ li a{
     padding: 14px;
     text-decoration: none;
 }
+/*-----------Classes------------*/
 /* Title Text Header*/
-h2{
-    color:#454475;
+.headerTitle{
     font-size: 40px;
     margin-left: 1%;
+    font-weight: bolder;
 }
-h3{
-    margin-left: 1%;
-}
-
-/*Configured so that the footer always is tied to the bottom of the page no matter the length.*/
-/*-----------Classes------------*/
-
 /*Navigation Button*/
 .navButton{
-    background-color: #3f3750;
-    color: #cccccc;
+    color:#FFC500;
     border: 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 25px;
 }
 /* Change button color text on hover*/
 .navButton:hover{
-    background-color: #000000;
-    color:#e6e6e6;
-}
-/*Textbox for...well, text*/
-.textBox{
-    background-color: #e6e6e6;
-    width: fit-content;
-    padding:5px;
-    border: 5px solid #454475;
-    margin: 10px;
+    color:#FFEE77;
 }
 /*Centered title header that is meant to be placed right above a centerBox*/
 .centerTitle{
-    text-decoration: underline;
-    text-decoration-thickness: 5px;
     font-weight: bold;
     width:51%;
-    color: #454475;
     font-size: 40px;
     padding: 5px;
     margin:auto;
 }
-/*Centered textbox, mainly used for blog posts*/
-.centerBox{
-    background-color: #e6e6e6;
-    color: #222141;
+/*Frame with no apparent structuring*/
+.centerSquareFrame{
+    width:100%;
+    font-size: 120%;
+    padding:5px;
+    margin:auto;
+}
+/*Frame with a thin, light line as a border in a rounded box*/
+.centerLightRoundFrame{
+    border: 3px solid #FFEE773F;
+    border-radius: 50px;
     width:50%;
     font-size: 120%;
     padding:5px;
-    border: 5px solid #454475;
+    margin:auto;
+}
+/*Centered textbox, mainly used for blog posts*/
+.centerTextBox{
+    background-color: #00509D2F;
+    border-radius: 25px;
+    width:50%;
+    font-size: 120%;
+    padding:5px;
+    border: 3px solid #FFEE773F;
     margin:auto;
     text-align: justify;
+    box-shadow: 0px 5px 10px #00000050;
 }
 /*Centered image*/
 .centerImage{
@@ -87,15 +96,15 @@ h3{
     display: inline-block;
     width: 100%;
     margin: auto;
-    box-shadow: 0px 8px 16px #00000050;
 }
 /*Menu button in a dropdown menu*/
 .blogDropDownButton{
+    color:inherit;
     width: 100%;
     margin: auto;
-    background-color: #3f3750;
-    color: #cccccc;
-    border: 5px solid #000000;
+    background-color: #00296B;
+    border: 5px none #FFEE773F;
+    border-radius: 100px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -103,14 +112,12 @@ h3{
     font-size: 40px;
 } 
 .blogDropDownButton:hover{
-    background-color: #222222;
+    background-color: #002953;
 }
-/*Button for clicking to a blog post on the main blog page*/
+/*Link box for clicking to a blog post on the main blog page*/
 .blogEntryContainer{
-    background-color: #3f3750;
-    color: #cccccc;
-    border: 5px solid #000000;
-    border-top: 0px solid #000000;
+    border: 5px solid #FFEE773F;
+    border-radius: 20px;
     text-align: left;
     text-decoration: none;
     display: none;
@@ -119,15 +126,15 @@ h3{
 }
 /*The ACTUAL blog entry link*/
 .blogEntryContainer a{
-    background-color: #3f3750;
-    color:#cccccc;
+    color:#FFC500;
     padding: 5px;
+    border-radius: inherit;
     text-decoration: none;
     display:block;
     font-weight: bold;
 }
 .blogEntryContainer a:hover{
-    background-color: #000000;
+    background-color: #00296B;
 }
 
 /*Descriptive content in a dropdown menu entry*/
@@ -141,12 +148,10 @@ h3{
 }
 /*Descriptive content underneath an h2 title header*/
 .descriptionBox{
+    font-weight: bold;
     width: 50%;
     text-align: center;
-    background-color: #3f3750;
-    border: 5px solid #454475;
-    color:#cccccc;
-    font-size: 24px;
+    font-size: 30px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3%;
@@ -154,20 +159,24 @@ h3{
 }
 /*Bigger, bold font used for titles*/
 .textTitle{
+    color:#d6a400;
     font-size: 24px;
-    color: #454475;
     display: block;
     font-weight: bold;
 }
 /*Bigger, bold font used for special occasions (links)*/
 .textSpecial{
+    color:inherit;
     word-spacing: normal;
     font-size: 20px;
     margin-right: 5px;
-    color: #222141;
     display: inline;
     font-weight: 600;
     text-decoration: none;
+}
+.textSpecial a{
+    text-decoration: none;
+    color:inherit;
 }
 /*Footer information mainly used to stick it to the bottom of the page*/
 .stickyFooter{
@@ -177,12 +186,9 @@ h3{
     margin:auto;
     margin-top: 50vh;
 }
-.content{
-    padding:20px;
-}
 /*Block around an area of text with mono font to resemble code*/
 .codeBlock {
-    background-color: gray;
+    background-color: #333333;
     margin-left: 2px;
     margin-right: 2px;
     text-decoration: none;

@@ -1,8 +1,8 @@
 //-This is the template used by all blog POSTS, not to be confused with the blog ARCHIVE page.
 -
-    var centerTitleFlag=false
-    var mdContentIterator=0
-    var parsedBody=null
+    let centerTitleFlag=false
+    let mdContentIterator=0
+    let parsedBody=null
 doctype html
 html 
     head
@@ -10,14 +10,14 @@ html
     body
         include ../template/nav
         //-Link to take you back to the blog page
-        h2
+        div.headerTitle
             a.navButton(href="/blog", style="padding: 5px;") 🠔 Back to Posts
         //- Get Title for blog post that goes above center box
         div.content
             each contentTag in content
                 div.centerTitle #{contentTag.body}
                 -   break
-            div.centerBox
+            div.centerTextBox
                 //- Get date sub title
                 each contentTag in content
                     //- Skip first element
@@ -50,7 +50,7 @@ html
                                 a(href=`${parsedBody[0]}`) #{parsedBody[1]}
                         //-Base case, standard content
                         else
-                            p.textTitle #{contentTag.head}
+                            p.textTitle(style="text-decoration:underline") #{contentTag.head}
                             span #{contentTag.body} 
     footer
         include ../template/footer

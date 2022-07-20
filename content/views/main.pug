@@ -11,15 +11,16 @@ html
         include template/nav
         //- Get title text header
         each contentTag in content
-            h2 #{contentTag.body}
+            div.headerTitle #{contentTag.body}
             //- Break iteration to only get header 
             -   break
         br
         //- Get Description box
         each contentTag in content
             if descBoxFlag===1
-                h3.descriptionBox #{contentTag.body}
-                -   break
+                div.descriptionBox #{contentTag.body}
+                -   descBoxFlag++
+                    break
             else
                 -   descBoxFlag++
         //-Insert content depending on the page specifics
