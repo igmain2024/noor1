@@ -28,6 +28,8 @@ app.get('/:main', (req,res) => {
 //Loads branches from main branches, mainly blog posts
 app.get('/:main/:name', (req,res)=>{
     var view=req.params.name
+    //If the request is for a document, handle later
+    if(req.params.main==="doc")     return  findPDF(`./content/doc/${req.params.name}`,res)
     //If the request is for a blog post page.
     if(req.params.main==="blog")   view="blog-template"
     renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${req.params.main}/${view}`,res)
@@ -76,4 +78,14 @@ function findSpecificFile(filePath, res){
         if(err)     return renderContent('./content/md/main/404.md','main/404',res);
         res.end(content); 
     });
+}
+/*Loads contents of a PDF file to the client*/
+function findPDF(filePath,res){
+    console.log(`Retrieving ${filePath}`)
+    var file = fs.createReadStream(filePath);
+    var stat = fs.statSync(filePath);
+    res.setHeader('Content-Length', stat.size)
+        .setHeader('Content-Type', 'application/pdf')
+        .setHeader('Content-Disposition', 'attachment; filename=quote.pdf')
+    file.pipe(res);
 }

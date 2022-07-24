@@ -2,11 +2,16 @@ extends ../main.pug
 block content
     div.centerLightRoundFrame
         p
-            div.textTitle(style="display: inline; margin-right: 5px;") 🕻 Phone number:
+            a.textTitle(style="display: inline; text-decoration:none; margin-right: 5px;" href="/doc/Griffen-Agnello-resume.pdf" download="") 📄 Resume Download
+        p
+            div.textTitle(style="display: inline; margin-right: 5px;") ☎ Phone number:
             div.textSpecial 360-281-9034
         p
-            div.textTitle(style="display: inline; margin-right: 5px;") ✉ Email:
+            div.textTitle(style="display: inline; margin-right: 5px;") 📧 Email:
             a.textSpecial(href= "mailto: agnellogriffen@gmail.com") agnellogriffen@gmail.com
         p
-            div.textTitle(style="display: inline; margin-right: 5px;") GitHub:
-            a.textSpecial(href="https://github.com/quakeroatsgod") https://github.com/quakeroatsgod
+            div
+                img(src="https://www.pngarts.com/files/8/Github-Logo-Transparent-Background-PNG.png", style="display: inline; height:5%; width: 5%;")
+                span.textTitle(style="display: inline; margin-right: 5px;") GitHub:
+                a.textSpecial(href="https://github.com/quakeroatsgod") https://github.com/quakeroatsgod
+        

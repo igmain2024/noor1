@@ -37,7 +37,7 @@ html
                             span(class=`continue`) #{contentTag.body}
                         //-Code block content
                         else if /codeBlock_/.test(contentTag.head)
-                            span(class=`codeBlock`) #{contentTag.body}
+                            code(class=`codeBlock`) #{contentTag.body}
                         //-Centered Image content
                         else if /centerImg_/.test(contentTag.head)
                             img(class=`centerImage`, src=`${parsedBody[0]}`, alt=`${parsedBody[1]}`)
