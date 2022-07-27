@@ -21,17 +21,27 @@ app.get('/scripts.js', (req,res) => { findSpecificFile('./scripts/scripts.js',re
 //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
 app.get('/', (req,res) =>{  renderContent('./content/md/main/index.md','main/index',res)});
 //Loads a main branch
+//TODO control statement for favicon.ico. main==='favicon.ico'
 app.get('/:main', (req,res) => {
-    if(req.params.main==="blog")    return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/blogposts.json'))
+    switch(req.params.main){
+        case "blog":    return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/blogposts.json'))
+        case "favicon.ico":     
+            console.log("FUCK");
+            return findSpecificFile('./content/images/other/pog.png',res);
+    }
     return renderContent(`./content/md/main/${req.params.main}.md`,`main/${req.params.main}`,res)
 });
 //Loads branches from main branches, mainly blog posts
 app.get('/:main/:name', (req,res)=>{
     var view=req.params.name
-    //If the request is for a document, handle later
-    if(req.params.main==="doc")     return  findPDF(`./content/doc/${req.params.name}`,res)
-    //If the request is for a blog post page.
-    if(req.params.main==="blog")   view="blog-template"
+    switch (req.params.main) {
+        //If the request is for a document
+        case "doc": return  findPDF(`./content/doc/${req.params.name}`,res)
+        //If the request is for a blog post page.
+        case "blog":
+            view="blog-template"
+            break;
+    }
     renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${req.params.main}/${view}`,res)
 });
 //Loads pictures

@@ -4,6 +4,7 @@
         "2022":{
             "year":"2022",
             "links":[
+                {"link":"oh-its-been-a-month-already","title":"Oh It's Been A Month Already","date":"7-26-22","desc":"A small retrospect on the past month since I've written the last blog post."},
                 {"link":"pug-switch","title":"Dynamic Pages are Here","date":"6-29-22","desc":"The painstaking process of swtiching from HTML to pug pages."},
                 {"link":"footer-trouble","title":"Sticky Footer is Inconsistent","date":"6-16-22","desc":"The first major road block I have experienced while making this website."},
                 {"link":"first-post","title":"My First Blog Post!","date":"6-13-22","desc":"A short story of why I wanted to make this website, and the process involved."}
