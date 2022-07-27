@@ -2,6 +2,7 @@
 const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
+const favicon = require('serve-favicon');
 // const scripts = require('./scripts/module.js')
 //The template content is used so much, it deserves it's own variable so we automatically have it
 const templateContent = require('./JSON/template.json')
@@ -21,13 +22,10 @@ app.get('/scripts.js', (req,res) => { findSpecificFile('./scripts/scripts.js',re
 //Mandatory callback for the home page. Since home IS the root, it needs a special pattern match case
 app.get('/', (req,res) =>{  renderContent('./content/md/main/index.md','main/index',res)});
 //Loads a main branch
-//TODO control statement for favicon.ico. main==='favicon.ico'
 app.get('/:main', (req,res) => {
+    //Cursed switch statement has only 1 case. May change this later
     switch(req.params.main){
         case "blog":    return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/blogposts.json'))
-        case "favicon.ico":     
-            console.log("FUCK");
-            return findSpecificFile('./content/images/other/pog.png',res);
     }
     return renderContent(`./content/md/main/${req.params.main}.md`,`main/${req.params.main}`,res)
 });
