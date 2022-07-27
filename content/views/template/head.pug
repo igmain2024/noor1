@@ -3,9 +3,19 @@ head
     style
         include ../../css/index.css
     meta(charset=`${head.meta.charset}`)
+    meta(property="og:title" content="Griffen's Web Portfolio")
+    meta(property="og:type" content="website")
+    meta(property="og:url" content="https://griffenagnello.herokuapp.com/")
+    meta(property="og:image" content="https://griffenagnello.herokuapp.com/images/other/favicon.ico")
+    meta(property="og:description" content="Griffen's personal website porfolio that documents his programming journey. Contents include a blog, contact info, and more.")
+    meta(name="theme-color" content="#00FFFF")
+<meta name="twitter:card" content="summary_large_image">
+
+
     meta(name="viewport" content="width=100, initial-scale=1.0")
     //- Get page tab title
     each contentTag in content 
         title=`${contentTag.head}`
+        - break
     //-favicon.ico
     link(rel="icon", type="image/x-icon", href="/images/other/favicon.ico")

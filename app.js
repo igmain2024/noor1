@@ -2,7 +2,6 @@
 const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
-const favicon = require('serve-favicon');
 // const scripts = require('./scripts/module.js')
 //The template content is used so much, it deserves it's own variable so we automatically have it
 const templateContent = require('./JSON/template.json')
