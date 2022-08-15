@@ -96,30 +96,6 @@ li a{
     text-align: justify;
     box-shadow: 0px 5px 10px #000000F5;
 }
-/*Left-justified textbox, used in the home page*/
-.leftTextBox{
-    display: inline-block;
-    background-color: #00509D2F;
-    border-radius: 25px;
-    width:40%;
-    font-size: 120%;
-    padding:5px;
-    text-align: left;
-    box-shadow: 0px 5px 10px #000000F5;
-}
-.introFrame{
-    display: block;
-    height:75%;
-    width:50%;
-    margin:auto;
-}
-.profileImage{
-    display: inline;
-    width:inherit;
-    height:inherit;
-    border-radius: 100%;
-    margin-left: 5%;
-}
 /*Centered image*/
 .centerImage{
     margin:auto;
@@ -184,6 +160,39 @@ li a{
 /*Toggled to show the contents of a dropdown menu (blog entries)*/
 .showContents{
     display:block;
+}
+/*---------------Index Classes--------------------*/
+.indexTable{
+    display: block;
+    background-color: #00509D2F;
+    border-radius: 100px;
+    /* border-top-right-radius: 85px; */
+    /* border-bottom-right-radius: 85px; */
+    width:75%;
+    font-size: 120%;
+    padding:5px;
+    margin: auto;
+    text-align: justify;
+    box-shadow: 0px 5px 10px #000000A0;
+}
+/*left text on index table*/
+.leftText{
+    margin-left:15%;
+}
+/*Used on index page for picture of me*/
+.profileImage{
+    display: inline;
+    width:75%;
+    height: 50%;
+    margin-left:5%;
+    border-radius: 100%;
+}
+/*unused*/
+.introFrame{
+    display: block;
+    height:100%;
+    width:50%;
+    margin:auto;
 }
 /*----------------Text classes-----------------------*/
 /*Centered title header that is meant to be placed right above a centerBox*/
