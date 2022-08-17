@@ -1,4 +1,4 @@
-//-This is the template used by all blog POSTS, not to be confused with the blog ARCHIVE page.
+//-This is the template used by all blog/project POSTS, not to be confused with the blog/project ARCHIVE page.
 -
     let centerTitleFlag=false
     let mdContentIterator=0
@@ -9,9 +9,6 @@ html
         include ../template/head
     body
         include ../template/nav
-        //-Link to take you back to the blog page
-        div.headerTitle
-            a.navButton(href="/blog", style="padding: 5px;") 🠔 Back to Posts
         //- Get Title for blog post that goes above center box
         div.content
             each contentTag in content

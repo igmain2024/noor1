@@ -1,4 +1,5 @@
 # Projects | Griffen's Web Portfolio
 Projects
 ##
-Oops! This page doesn't have any content. I may return at a future date to work on this.
+These are a collection of my projects that I have been working on, as well as some
+discussion about them.

@@ -30,16 +30,18 @@ app.get('/:main', (req,res) => {
 });
 //Loads branches from main branches, mainly blog posts
 app.get('/:main/:name', (req,res)=>{
-    var view=req.params.name
+    var view=req.params.name, branch=req.params.main
     switch (req.params.main) {
         //If the request is for a document
         case "doc": return  findPDF(`./content/doc/${req.params.name}`,res)
-        //If the request is for a blog post page.
-        case "blog":
-            view="blog-template"
+        //If the request is for a blog or project post page.
+        case "blog": 
+        case "projects":
+            branch="posts"
+            view="post-template"
             break;
     }
-    renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${req.params.main}/${view}`,res)
+    renderContent(`./content/md/${req.params.main}/${req.params.name}.md`,`${branch}/${view}`,res)
 });
 //Loads pictures
 app.get('/images/:main/:pic', (req,res)=>{  findSpecificFile(`./content/images/${req.params.main}/${req.params.pic}`,res)});
