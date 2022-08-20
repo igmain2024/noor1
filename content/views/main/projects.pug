@@ -1,1 +1,24 @@
 extends ../main.pug
+block scripts
+    script(src="/scripts.js" defer)
+block content
+    div.centerSquareFrame
+        //- Archive list with a menu for each year
+        div.centerTitle Latest Projects
+            //-Dropdown div to hold menu buttons
+            //- Iterate through each archive year
+            br
+            each archive in projectposts
+                //-Make dropdown menu button. Contents are hidden at first.
+                div #{archive.year} Archive
+                div.blogEntryContainer(id=`${archive.year}`, style="display: block;")
+                    //- List from oldest to newest in archive
+                    - let postIterator = 0
+                    while postIterator <= archive.links.length-1
+                        a(href=`/projects/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
+                            p #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
+                        //- Horizontal rule on the bottom on all but the last link
+                        if postIterator != archive.links.length-1
+                            hr
+                        //- Next iteration is next newest post
+                        -   postIterator++

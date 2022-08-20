@@ -11,7 +11,7 @@ https://github.com/skypjack/entt Entt
 ### continue_1
 entity-component-system handles object manipulation by labeling each entity with an ID,
 and each entity can gain certain characteristics such as flammable, bird (flying entities), or
-animated. C.A.N.G is an acronym of the team name, Cyrus, Amethyst, Nate, Griffen, and each of us
+animated. C.A.N.G is an acronym of the names of the team members, Cyrus, Amethyst, Nate, and Griffen. Each of us
 had our own "Cool Cam" where we implemented a special feature into the program that is supposed to 
 be impressive.
 ### Explosions!

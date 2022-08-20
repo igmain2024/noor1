@@ -22,9 +22,9 @@ app.get('/scripts.js', (req,res) => { findSpecificFile('./scripts/scripts.js',re
 app.get('/', (req,res) =>{  renderContent('./content/md/main/index.md','main/index',res)});
 //Loads a main branch
 app.get('/:main', (req,res) => {
-    //Cursed switch statement has only 1 case. May change this later
     switch(req.params.main){
         case "blog":    return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/blogposts.json'))
+        case "projects": return renderContent(`./content/md/main/${req.params.main}.md`, `main/${req.params.main}`,res,require('./JSON/projectposts.json'))
     }
     return renderContent(`./content/md/main/${req.params.main}.md`,`main/${req.params.main}`,res)
 });
