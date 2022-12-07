@@ -2,6 +2,7 @@
 const fs = require("fs");
 const express = require('express');
 const jsonmark = require('jsonmark')
+const port = process.env.PORT || 3000
 // const scripts = require('./scripts/module.js')
 //The template content is used so much, it deserves it's own variable so we automatically have it
 const templateContent = require('./JSON/template.json')
@@ -53,7 +54,7 @@ module.exports=app;
 
 //Listen for incoming client connections
 //For deployment on heroku, the port will be `process.env.PORT`. If localhost, the port is 8888
-app.listen(process.env.PORT || 8888, () => console.log(`Server is listening on port ${process.env.PORT || 8888}...`));
+app.listen(port, () => console.log(`Server is listening on port ${port}...`));
 
 /*---------------------Functions/Methods--------------------------- */
 /*

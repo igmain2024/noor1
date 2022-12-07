@@ -1,31 +1,31 @@
 {
-  "dependencies": {
-    "express": "^4.18.1",
-    "heroku": "^7.60.2",
-    "jsonmark": "^0.0.1",
-    "nodemon": "^2.0.19",
-    "pug": "^3.0.2"
-  },
-  "name": "griffen-agnello-website",
-  "description": "My personal portofolio website made using Node.js and Express.js. Currrently, it is not made publicly accessible on the web, as I do not have a web host provider. Despite this, all the page contents are able to be viewed here in this repository. All HTML and CSS style pages are made from scratch, no templates are used. This decision is for me to learn about the fundamentals of web development in detail from start to finsih.",
-  "version": "1.0.0",
-  "main": "app.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quakeroatsgod/personal-website.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/quakeroatsgod/personal-website/issues"
-  },
-  "homepage": "https://github.com/quakeroatsgod/personal-website#readme"
+    "dependencies": {
+        "express": "^4.18.1",
+        "heroku": "^7.60.2",
+        "jsonmark": "^0.0.1",
+        "nodemon": "^2.0.19",
+        "pug": "^3.0.2"
+    },
+    "name": "griffen-agnello-website",
+    "description": "My personal portofolio website made using Node.js and Express.js. Currrently, it is not made publicly accessible on the web, as I do not have a web host provider. Despite this, all the page contents are able to be viewed here in this repository. All HTML and CSS style pages are made from scratch, no templates are used. This decision is for me to learn about the fundamentals of web development in detail from start to finsih.",
+    "version": "1.0.0",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/quakeroatsgod/personal-website.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/quakeroatsgod/personal-website/issues"
+    },
+    "homepage": "https://github.com/quakeroatsgod/personal-website#readme"
 }
