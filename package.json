@@ -11,11 +11,11 @@
   "version": "1.0.0",
   "main": "app.js",
   "directories": {
-    "test": "test",
-    "start": "node server.js"
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
