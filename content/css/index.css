@@ -233,3 +233,14 @@ li a{
     display: inline;
     font-family: monospace;
 }
+
+
+/*CSS that I made after switching to Bootstrap 5*/
+.textSpecial-bs{
+    color:inherit;
+    font-weight: 600;
+}
+
+.textSpecial-bs a:hover{
+    color:inherit;
+}
