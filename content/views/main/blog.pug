@@ -3,32 +3,34 @@ extends ../main.pug
 block scripts
     script(src="/scripts.js" defer)
 block content
-    div.centerSquareFrame
-        div.centerTitle Most Recent Post
-            //-Get most recent post
-            each archive in blogposts
-                //- Display most recent post link with its description and date
-                div.blogEntryContainer(style="display: block;")
-                    a(href=`/blog/${archive.links[0].link}`) #{archive.links[0].title}
-                        p #{archive.links[0].date}<br>#{archive.links[0].desc}
-                -   break
-        //- Archive list with a dropdown menu for each year
-        div.centerTitle Blog Post Archives
-            //-Dropdown div to hold menu buttons
-        
-            //- Iterate through each archive year
-            each archive in blogposts
-                //-Make dropdown menu button. Contents are hidden at first.
-                button.blogDropDownButton(onclick=`toggleDropdown("${archive.year}")`) #{archive.year} Archive
-                div.blogEntryContainer(id=`${archive.year}`)
-                    //- List from oldest to newest in archive
-                    - let postIterator = archive.links.length-1
-                    while postIterator >= 0
-                        a(href=`/blog/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
-                            p #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
-                        //- Horizontal rule on the bottom on all but the last link
-                        if postIterator != 0
-                            hr
-                        //- Next iteration is next newest post
-                        -   postIterator--
+    div(class="container-md")
+        div(class="mx-auto" style="width:75%;")
+            div(class="text-start fs-2 fw-bolder") Most Recent Post
+                //-Get most recent post
+                each archive in blogposts
+                    //- Display most recent post link with its description and date
+                    div.blogEntryContainer(style="display: block;")
+                        a(class="fs-4" href=`/blog/${archive.links[0].link}`) #{archive.links[0].title}
+                            p(class="fs-5") #{archive.links[0].date}<br>#{archive.links[0].desc}
+                    -   break
+            //- Archive list with a dropdown menu for each year
+        br
+        div(class="mx-auto" style="width:75%;")
+            div(class="text-start fs-2 fw-bolder")  Blog Post Archives
+                //-Dropdown div to hold menu buttons
+                //- Iterate through each archive year
+                each archive in blogposts
+                    //-Make dropdown menu button. Contents are hidden at first.
+                    button.blogDropDownButton(onclick=`toggleDropdown("${archive.year}")`) #{archive.year} Archive
+                    div.blogEntryContainer(id=`${archive.year}`)
+                        //- List from oldest to newest in archive
+                        - let postIterator = archive.links.length-1
+                        while postIterator >= 0
+                            a(class="fs-4" href=`/blog/${archive.links[postIterator].link}`) #{archive.links[postIterator].title}
+                                p(class="fs-5") #{archive.links[postIterator].date}<br>#{archive.links[postIterator].desc}
+                            //- Horizontal rule on the bottom on all but the last link
+                            if postIterator != 0
+                                hr
+                            //- Next iteration is next newest post
+                            -   postIterator--
 

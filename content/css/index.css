@@ -9,7 +9,7 @@
     #002953 - even darker variation
 */
 html{
-    background-color: #003F88;
+    /* background-color: #003F88; */
     color:#FFC500;
     font-family:sans-serif;
     height:100%;
@@ -35,6 +35,8 @@ li a{
     font-size: 40px;
     margin-left: 1%;
     font-weight: bolder;
+    color:#FFC500;
+
 }
 /*Navigation Button*/
 .navButton{
@@ -51,6 +53,7 @@ li a{
 }
 /*Descriptive content underneath an h2 title header*/
 .descriptionBox{
+    color:#FFC500;
     font-weight: bold;
     width: 50%;
     text-align: center;
@@ -78,7 +81,7 @@ li a{
 }
 /*Frame with a thin, light line as a border in a rounded box*/
 .centerLightRoundFrame{
-    border: 3px solid #FFEE773F;
+    border: 3px solid #444444AF;
     border-radius: 50px;
     width:50%;
     font-size: 120%;
@@ -116,7 +119,7 @@ li a{
     color:inherit;
     width: 100%;
     margin: auto;
-    background-color: #00296B;
+    background-color: #444444;
     border: 5px none #FFEE773F;
     border-radius: 100px;
     text-align: center;
@@ -126,7 +129,8 @@ li a{
     font-size: 40px;
 } 
 .blogDropDownButton:hover{
-    background-color: #002953;
+    /* background-color: #002953; */
+    background-color: #666666;
 }
 /*Link box for clicking to a blog post on the main blog page*/
 .blogEntryContainer{
@@ -149,7 +153,8 @@ li a{
     font-weight: bold;
 }
 .blogEntryContainer a:hover{
-    background-color: #00296B;
+    background-color: #555555;
+    color:inherit;
 }
 
 /*Descriptive content in a dropdown menu entry*/

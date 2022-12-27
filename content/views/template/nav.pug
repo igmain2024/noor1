@@ -1,9 +1,15 @@
 //- Navigation bar. Usage: put include in first line of body indentation
-nav.ul
-    li
-        each navLink in navLinks
-            strong
-                a.navButton(href=navLink.href) #{navLink.name}
-    br
-br
+style.
+    .lia{
+        color:inherit;
+    }
+    .lia:hover{
+        color:#FFEE77;
+    }
+nav(class="navbar navbar-expand-lg navbar-light")
+    ul(class="navbar-nav")
+        each nav_link in navLinks
+            li(class="nav-item active" )
+                a(class="nav-link fs-3 fw-bold" style="color:#FFC500;" href=nav_link.href) 
+                    p(class="lia") #{nav_link.name}
 hr
