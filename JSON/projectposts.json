@@ -4,7 +4,8 @@
         "2022":{
             "year":"2022",
             "links":[
-                {"link":"2d-paint", "title":"2D Paint", "date":"8-7-22", "desc":"A painting program similar to MS Paint that takes inspiration from C.A.N.G."},
+                {"link":"cs442-final-project", "title":"CS442 Final Project: Vaporwave Scene Graph", "date":"12-28-22", "desc":"Final project for CS 442 Computer Graphics that is a 3D scene."},
+                {"link":"cs447-games", "title":"CS447 Games: Pushover and Noodle Arm", "date":"12-28-22", "desc":"The two 2D games I developed in CS 447 Computer Game Design."},
                 {"link":"personal-portfolio-website","title":"This Website!", "date":"8-20-22","desc":"My own personal website with a blog and contact information."},
                 {"link":"CANG-physics-simulator","title":"C.A.N.G. Physics Simulator","date":"5-1-22","desc":"My introduction to large-scale software development as well as graphics programming."}
             ]
