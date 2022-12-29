@@ -1,6 +1,7 @@
 //- footer. Usage: include under footer indentation
-footer(class="footer mt-auto py-3 text-center" style="background-color:#222222;")
-    div(class="container-md")
-        hr
-        each line in footer.content
-            div( style="color:#d6a400;") #{line}
+footer(class="container-fluid" )
+    div(class="footer text-center")
+        div(class="row g-0")
+            hr
+            each line in footer.content
+                div( style="color:#d6a400;") #{line}

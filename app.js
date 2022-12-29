@@ -96,6 +96,6 @@ function findPDF(filePath,res){
     var stat = fs.statSync(filePath);
     res.setHeader('Content-Length', stat.size)
         .setHeader('Content-Type', 'application/pdf')
-        .setHeader('Content-Disposition', 'attachment; filename=quote.pdf')
+        .setHeader('Content-Disposition', 'attachment; filename=griffen_agnello_resume.pdf')
     file.pipe(res);
 }

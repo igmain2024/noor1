@@ -7,47 +7,56 @@ doctype html
 html 
     head
         include ../template/head
-    body(style="background-color: #222222;")
-        include ../template/nav
-        //- Get Title for blog post that goes above center box
-        div.content
-            each contentTag in content
-                div.centerTitle #{contentTag.body}
-                -   break
-            div.centerTextBox
-                //- Get date sub title
-                each contentTag in content
-                    //- Skip first element
-                    if mdContentIterator===0
-                        -   mdContentIterator++
-                    //- Element 2 of MDON has date
-                    else if mdContentIterator===1
-                        -   mdContentIterator++
-                        p.textTitle #{contentTag.head}
-                    //- Get content from rest of MDON
-                    else
-                        //- Parse the body in case it is something like an image (see format.md)
-                        -   parsedBody=(contentTag.body).split(" ")
-                        //-No, unfortunately a switch case wouldn't work here
-                        //-Continuation from special content
-                        if /continue_/.test(contentTag.head)
-                            span(class=`continue`) #{contentTag.body}
-                        //-Code block content
-                        else if /codeBlock_/.test(contentTag.head)
-                            code(class=`codeBlock`) #{contentTag.body}
-                        //-Centered Image content
-                        else if /centerImg_/.test(contentTag.head)
-                            img(class=`centerImage`, src=`${parsedBody[0]}`, alt=`${parsedBody[1]}`)
-                        //-Paragraph with no header content
-                        else if /p_/.test(contentTag.head)
-                            p #{contentTag.body}
-                        //-Link <a> content
-                        else if /link_/.test(contentTag.head)
-                            span.textSpecial(style=`display:inline; margin-left:5px;`)
-                                a(href=`${parsedBody[0]}`) #{parsedBody[1]}
-                        //-Base case, standard content
-                        else
-                            p.textTitle(style="text-decoration:underline") #{contentTag.head}
-                            span #{contentTag.body} 
-    footer
-        include ../template/footer
+        style.
+            a:hover{
+                color:#d6a400;
+            }
+    main(class="main-page h-100")
+        body(class="container d-flex flex-column main-mh-100" style="background-color: #222222; color:#FFEE77;")
+            div(class="container-md flex-grow-1" )
+                include ../template/nav
+                div(class="container-md" style="width:85%;")
+                    //- Get Title for blog post that goes above center box
+                    each contentTag in content
+                        div(class="mx-auto")
+                            div(class="text-start fs-2 fw-bolder") #{contentTag.body}
+                        -   break
+                    div(class="card mb-6 p-5 shadow rounded" style="background-color:#444444AF;")
+                        div(class="row g-0")
+                            div(class="card-body")
+                                //- Get date sub title
+                                each contentTag in content
+                                    //- Skip first element
+                                    if mdContentIterator===0
+                                        -   mdContentIterator++
+                                    //- Element 2 of MDON has date
+                                    else if mdContentIterator===1
+                                        -   mdContentIterator++
+                                        div(class="text-start fs-4 fw-bolder") #{contentTag.head}
+                                    //- Get content from rest of MDON
+                                    else
+                                        //- Parse the body in case it is something like an image (see format.md)
+                                        -   parsedBody=(contentTag.body).split(" ")
+                                        //-No, unfortunately a switch case wouldn't work here
+                                        //-Continuation from special content
+                                        if /continue_/.test(contentTag.head)
+                                            span(class=`card-text fs-5`) #{contentTag.body}
+                                        //-Code block content
+                                        else if /codeBlock_/.test(contentTag.head)
+                                            span
+                                                code(class=`card-text fs-5 bg-gray p-1`) #{contentTag.body}
+                                        //-Centered Image content
+                                        else if /centerImg_/.test(contentTag.head)
+                                            img(class=`img-fluid`, src=`${parsedBody[0]}`, alt=`${parsedBody[1]}`)
+                                        //-Paragraph with no header content
+                                        else if /p_/.test(contentTag.head)
+                                            p(class=`card-text fs-5`) #{contentTag.body}
+                                        //-Link <a> content
+                                        else if /link_/.test(contentTag.head)
+                                            span
+                                                a.textSpecial-bs(class=`card-text fs-5 p-1` href=`${parsedBody[0]}`) #{parsedBody[1]}
+                                        //-Base case, standard content
+                                        else
+                                            p.textTitle(style="text-decoration:underline") #{contentTag.head}
+                                            span(class=`card-text fs-5`) #{contentTag.body} 
+            include ../template/footer
