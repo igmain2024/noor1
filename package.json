@@ -21,13 +21,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/quakeroatsgod/personal-website.git"
+        "url": "git+https://github.com/quakeroatsgriff/personal-website.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/quakeroatsgod/personal-website/issues"
+        "url": "https://github.com/quakeroatsgriff/personal-website/issues"
     },
-    "homepage": "https://github.com/quakeroatsgod/personal-website#readme"
+    "homepage": "https://github.com/quakeroatsgriff/personal-website#readme"
 }

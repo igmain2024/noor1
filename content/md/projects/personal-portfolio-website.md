@@ -6,7 +6,7 @@ My own personal website with a blog and contact information.
 Since you're here reading this, you probably know by now that this is my personal
 website that I built from scratch! It uses the Node.js framework as well as the
 Express.js framework on top of Node to handle the server. The server listens on
-PROCESS.ENV.PORT if it's ran on the Heroku app, or localhost:8888 if I'm running it 
+PROCESS.ENV.PORT if it's ran on the Heroku app, or localhost:8888 if I'm running it
 from my home. The website features server-side rendering, meaning client connections do not
 need to run any scripts on their end to load pages. The front-end is made with a template
 language called Pug (formerly known as Jade).
@@ -33,4 +33,4 @@ more because I do have classes starting up.
 ### p_1
 The GitHub repository can be found here:
 ### link_2
-https://github.com/quakeroatsgod/personal-website https://github.com/quakeroatsgod/personal-website
+https://github.com/quakeroatsgriff/personal-website https://github.com/quakeroatsgriff/personal-website

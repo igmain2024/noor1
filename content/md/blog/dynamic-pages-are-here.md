@@ -3,9 +3,9 @@ Dynamic Pages are Here
 ## 6-29-22, Edited on 7-12-22
 The painstaking process of switching from HTML to pug pages.
 ### I finally finished...
-In the last 
+In the last
 ### link_0
-/blog/footer-trouble post, 
+/blog/footer-trouble post,
 ### continue_0
 I mentioned that I was going to figure out how to automate HTML page generation. I can safely say
 that this endeavor has come to an end. Now, each of the main pages follow a main template made in pug.
@@ -20,9 +20,9 @@ an example of what I'm talking about.
 ### centerImg_1
 /images/blog-pics/pug-switch-pug-file.png pug_file
 ### Oh no, not the strand of else ifs
-The source code is all publicly available on  
+The source code is all publicly available on
 ### link_2
-https://github.com/quakeroatsgod/personal-website GitHub
+https://github.com/quakeroatsgriff/personal-website GitHub
 ### continue_2
 , so it's not like I'm sharing anything secretive here. As you can see, I am including the contents
 of the template files into this file. The main purpose of that is so that each file does not have
@@ -33,22 +33,22 @@ same navigation bar, the same header, the same footer, and a centered box for th
 about that: say I wanted to add a link to the navigation bar. I would then have to go into 50 files (more including
 the main pages), and change the navigation bar tag in each one. That is a massive amount of wasted time, and
 I wanted to avoid that issue. It is a classic example of something I learned in my software engineering class
-called the "Waterfall problem," where issues get more costly to fix the later they are addressed. With pug, 
+called the "Waterfall problem," where issues get more costly to fix the later they are addressed. With pug,
 I only need to worry about maintaining this single blog post template file.
 ### Pug is bad, and here's why
-Pug works very well with markdown files, as in if you give pug a # header, it could easily parse that into a h1 header. In addition, pug will work accordingly if you use an include statement with a markdown file. Here's the issue: the single fact that I can't use 
+Pug works very well with markdown files, as in if you give pug a # header, it could easily parse that into a h1 header. In addition, pug will work accordingly if you use an include statement with a markdown file. Here's the issue: the single fact that I can't use
 ### codeBlock_3
-include variable_name 
+include variable_name
 ### continue_3
 is the reason why this transition from HTML to pug took 2 weeks and not 1 week to complete. In pug, you are not allowed to include filepaths that come from a variable. If I try that exact line of code,
-pug will look for a file named "variable_name.pug" in my current directory. Even if I used a mixin (which is similar to a macro definition in C), it would still look up the literal parameter name. Sure, I could include a markdown file with an absolute path, but that would defeat the purpose of templates if I have to manually insert content again. I extensively researched if I could achieve what I wanted. Eventually, I found a post on GitHub from the creator of pug saying that dynamic includes will likely never be possible. 
+pug will look for a file named "variable_name.pug" in my current directory. Even if I used a mixin (which is similar to a macro definition in C), it would still look up the literal parameter name. Sure, I could include a markdown file with an absolute path, but that would defeat the purpose of templates if I have to manually insert content again. I extensively researched if I could achieve what I wanted. Eventually, I found a post on GitHub from the creator of pug saying that dynamic includes will likely never be possible.
 ### "JSONify" markdown
-I knew I could send JSON to a pug file, and that was the only other method that I could think of to use. I wasn't sure if making straight JSON files was the right call, since (as far as I know right now) they are not meant to hold large amounts of content, such as blog post content. Then I thought about converting markdown into JSON, and then sending that JSON to the pug file. Sure enough, there's a node package out there already made called 
+I knew I could send JSON to a pug file, and that was the only other method that I could think of to use. I wasn't sure if making straight JSON files was the right call, since (as far as I know right now) they are not meant to hold large amounts of content, such as blog post content. Then I thought about converting markdown into JSON, and then sending that JSON to the pug file. Sure enough, there's a node package out there already made called
 ### link_4
 https://www.npmjs.com/package/jsonmark jsonmark
 ### continue_4
 which literally converts markdown into JSON. The neat part about it is that content will always be
-labeled with "content", meaning that in pug I can iterate 
+labeled with "content", meaning that in pug I can iterate
 ### codeBlock_5
 each contentTag in content
 ### continue_5
@@ -56,7 +56,7 @@ and all of the content from the markdown will be pasted into the pug file. The m
 I am pasting straight text, not markdown. If I want to paste an image or link, I can't use the markdown
 method.
 ### Introducing format.md!
-I made my own specific ruleset for how markdown files are made. That's why all my markdown files will have something like 
+I made my own specific ruleset for how markdown files are made. That's why all my markdown files will have something like
 ### codeBlock_6
 codeBlock_0, link_1, continue_2
 ### continue_6
