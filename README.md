@@ -10,3 +10,4 @@ My personal portofolio website made using Node.js and Express.js. Currrently, I 
 
 ## How It Works
 From the main directory, the server is started-up by running `node app.js`. This will require the user to have Node.js, as well as the necessary modules. The server will listen to connections on `process.env.PORT`, which is used by Adaptable. The server may also run on `localhost:3000`. In the server app, GET requests may be made to certain webpages. When a GET request is received, the server will compile the associated markdown content into a pug template file. The pug file will then be converted to HTML. The resutlting HTML is sent to the client.
+# noor1
